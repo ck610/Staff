@@ -3002,30 +3002,7 @@ document.addEventListener("fullscreenchange", () => {
     logChat("SYSTEM", "Sei uscito dallo schermo intero.");
   }
 });
-        // Aggiungi stili per le animazioni
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideInRight {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            @keyframes slideOutRight {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-            }
-			// ==========================
+					// ==========================
 // AUTH (DEMO) - IMPORTANTISSIMO
 // ==========================
 // Qui è DEMO. Nel progetto vero devi prendere ruolo da backend (session/cookie).
@@ -3353,7 +3330,31 @@ document.addEventListener("keydown", (e) => {
 document.addEventListener("fullscreenchange", () => {
   if (!document.fullscreenElement) logChat("SYSTEM","Uscito dal fullscreen.");
 });
+        // Aggiungi stili per le animazioni
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
         `;
+	
         document.head.appendChild(style);
     </script>
 </body>
