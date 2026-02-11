@@ -606,6 +606,101 @@
             50% { opacity: 0.5; }
         }
 
+		.staff-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:16px;
+  margin-top:10px;
+}
+
+.staff-card{
+  background: var(--dark-lighter);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  transition: all .3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.staff-card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(108, 99, 255, 0.35);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.staff-card.online{
+  border-left: 4px solid var(--success);
+}
+
+.staff-card.offline{
+  border-left: 4px solid rgba(255,255,255,0.18);
+  opacity: 0.92;
+}
+
+.staff-top{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom: 12px;
+}
+
+.staff-avatar{
+  width:48px;
+  height:48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 800;
+  color:#fff;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.staff-meta{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.staff-name{
+  font-weight: 800;
+  font-size: 1.05em;
+}
+
+.staff-status{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.status-dot{
+  width:10px;
+  height:10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+}
+
+.staff-card.online .status-dot{
+  background: var(--success);
+  box-shadow: 0 0 0 3px rgba(76,175,80,0.12);
+}
+
+.staff-card.offline .status-dot{
+  background: rgba(255,255,255,0.22);
+}
+
+.status-text{
+  color: var(--text);
+}
+
+.status-info{
+  color: var(--text-muted);
+  font-weight: 600;
+}
         .user-menu {
             position: absolute;
             top: calc(100% + 10px);
@@ -833,7 +928,7 @@
             <button class="tab-btn active" onclick="openTab(event, 'tickets')">📑 Gestione Ticket</button>
             <button class="tab-btn" onclick="openTab(event, 'comandimc')">⛏️ Comandi MC</button>
             <button class="tab-btn" onclick="openTab(event, 'comandi')">⚡ Comandi Bot</button>
-            <button class="tab-btn" onclick="openTab(event, 'regole')">🚩 Regole d'Oro</button>
+            <button class="tab-btn" onclick="openTab(event, 'staff')">👥 Staff</button>
             <button class="tab-btn" onclick="openTab(event, 'regolamento')">📜 Regolamento Server</button>
 			<button class="tab-btn" onclick="openTab(event, 'annunci')">📢 Annunci / Changelog</button>
 			<button class="tab-btn" onclick="openTab(event, 'pex')">🧩 Pex & Depex</button>
@@ -1661,40 +1756,96 @@
             </div>
         </div>
 
-        <!-- TAB REGOLE -->
-        <div id="regole" class="tab-content">
-            <div class="section-card">
-                <h2 class="section-title"><span class="emoji">🚩</span> Regole d'Oro per lo Staff</h2>
-                <p style="color: var(--text-muted); margin-bottom: 30px;">Principi fondamentali da seguire sempre durante il supporto.</p>
+       <!-- TAB STAFF -->
+<div id="staff" class="tab-content">
+  <div class="section-card">
+    <h2 class="section-title"><span class="emoji">👥</span> Staff AxisMC</h2>
+    <p style="color: var(--text-muted); margin-bottom: 25px;">
+      Elenco completo dello staff. Stato: <span class="highlight">Loggato</span> = attivo ora, <span class="highlight">Offline</span> = non disponibile.
+    </p>
 
-                <ul class="rules-list">
-                    <li>
-                        <strong>Non chiudere mai il ticket senza avvisare</strong><br>
-                        Chiedi sempre: "Hai altre domande o posso procedere alla chiusura del ticket?" Prima di chiudere, attendi conferma dal player.
-                    </li>
-                    <li>
-                        <strong>Niente discussioni</strong><br>
-                        Se un utente diventa tossico o aggressivo, avvertilo educatamente una sola volta. Se continua, tagga immediatamente un superiore. Non entrare in discussioni accese.
-                    </li>
-                    <li>
-                        <strong>Tracciabilità sempre</strong><br>
-                        Assicurati che il bot dei ticket salvi il transcript (log della chat) prima di eliminare il canale. Questo è fondamentale per eventuali revisioni.
-                    </li>
-                    <li>
-                        <strong>Professionalità costante</strong><br>
-                        Mantieni sempre un tono educato, paziente e professionale, anche quando i player sono frustrati. Rappresenti AxisMC.
-                    </li>
-                    <li>
-                        <strong>Usa i comandi corretti</strong><br>
-                        <span class="highlight">OBBLIGATORIO</span>: Utilizza sempre i comandi /renameticket e /sposta appropriati. Il mancato utilizzo comporta warning.
-                    </li>
-                </ul>
+    <!-- (Opzionale) ricerca -->
+    <input type="text" class="search-box" placeholder="🔍 Cerca staffer (nome o rank)..." id="staffSearch" onkeyup="searchStaff()">
 
-                <div class="warning-box" style="margin-top: 30px;">
-                    Ricorda: La qualità del supporto che offri riflette direttamente la qualità del server. Sii sempre al top!
-                </div>
-            </div>
+    <div class="staff-grid" id="staffGrid">
+      <!-- ESEMPIO STAFF CARD -->
+      <div class="staff-card online" data-staffer>
+        <div class="staff-top">
+          <div class="staff-avatar">CA</div>
+          <div class="staff-meta">
+            <div class="staff-name">ck_anto</div>
+            <div class="staff-rank"><span class="rank-badge rank-manager">Manager</span></div>
+          </div>
         </div>
+        <div class="staff-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Loggato</span>
+          <span class="status-info">• In servizio</span>
+        </div>
+        <div class="badge-container">
+          <span class="mini-badge badge-approved">Attivo</span>
+        </div>
+      </div>
+
+      <div class="staff-card offline" data-staffer>
+        <div class="staff-top">
+          <div class="staff-avatar">BL</div>
+          <div class="staff-meta">
+            <div class="staff-name">blacked104</div>
+            <div class="staff-rank"><span class="rank-badge rank-sradmin">SrAdmin</span></div>
+          </div>
+        </div>
+        <div class="staff-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Offline</span>
+          <span class="status-info">• Non disponibile</span>
+        </div>
+        <div class="badge-container">
+          <span class="mini-badge badge-pending">Assente</span>
+        </div>
+      </div>
+
+      <div class="staff-card online" data-staffer>
+        <div class="staff-top">
+          <div class="staff-avatar">DZ</div>
+          <div class="staff-meta">
+            <div class="staff-name">Daze</div>
+            <div class="staff-rank"><span class="rank-badge rank-admin">Admin</span></div>
+          </div>
+        </div>
+        <div class="staff-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Loggato</span>
+          <span class="status-info">• Disponibile</span>
+        </div>
+      </div>
+
+      <div class="staff-card offline" data-staffer>
+        <div class="staff-top">
+          <div class="staff-avatar">EX</div>
+          <div class="staff-meta">
+            <div class="staff-name">EsempioMod</div>
+            <div class="staff-rank"><span class="rank-badge rank-mod">Mod</span></div>
+          </div>
+        </div>
+        <div class="staff-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Offline</span>
+          <span class="status-info">• Non disponibile</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" style="background: var(--dark-lighter); margin-top: 20px;">
+      <h3 class="section-title"><span class="emoji">📌</span> Note</h3>
+      <ul class="rules-list">
+        <li><strong>Loggato</strong> = lo staffer è attivo e può prendere ticket.</li>
+        <li><strong>Offline</strong> = lo staffer non è disponibile al momento.</li>
+        <li><strong>In servizio</strong> (opzionale) = turno attivo.</li>
+      </ul>
+    </div>
+  </div>
+</div
 
         <!-- TAB REGOLAMENTO -->
         <div id="regolamento" class="tab-content">
@@ -1860,6 +2011,17 @@
             });
         }
 
+		function searchStaff() {
+          const input = document.getElementById('staffSearch');
+          const filter = input.value.toLowerCase();
+          const cards = document.querySelectorAll('[data-staffer]');
+
+         cards.forEach(card => {
+         const text = card.textContent.toLowerCase();
+         card.style.display = text.includes(filter) ? 'block' : 'none';
+     }); 
+   }
+		
         function searchCommands() {
             const input = document.getElementById('commandSearch');
             const filter = input.value.toLowerCase();
