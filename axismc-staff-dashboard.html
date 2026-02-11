@@ -1025,6 +1025,406 @@
   font-weight: 600;
   line-height: 1.7;
 }
+		.provini-shell{
+  background: linear-gradient(135deg, rgba(108,99,255,0.12) 0%, rgba(76,175,80,0.06) 50%, rgba(255,107,107,0.04) 100%);
+  border-color: rgba(108,99,255,0.25);
+}
+
+.provini-hero{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom: 18px;
+}
+
+.provini-title{
+  font-size: 2em;
+  font-weight: 900;
+  letter-spacing: .2px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary) 60%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.provini-sub{
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.provini-chipbar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.prov-chip{
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 10px 12px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+.dot-ok{ background: var(--success); box-shadow: 0 0 0 4px rgba(76,175,80,0.12); }
+.dot-warn{ background: var(--warning); box-shadow: 0 0 0 4px rgba(255,181,69,0.12); }
+.dot-muted{ background: rgba(255,255,255,0.25); }
+
+.provini-grid{
+  display:grid;
+  grid-template-columns: 1.1fr 1.2fr;
+  gap:18px;
+}
+
+@media (max-width: 1100px){
+  .provini-grid{ grid-template-columns: 1fr; }
+}
+
+.prov-panel{
+  background: rgba(18,24,46,0.85);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 18px;
+  position: relative;
+  overflow:hidden;
+}
+
+.prov-panel::before{
+  content:'';
+  position:absolute;
+  inset:-2px;
+  background: radial-gradient(circle at 20% 10%, rgba(108,99,255,0.18), transparent 45%),
+              radial-gradient(circle at 80% 80%, rgba(76,175,80,0.12), transparent 55%);
+  opacity: .7;
+  pointer-events:none;
+}
+
+.prov-panel > *{ position: relative; z-index: 1; }
+
+.prov-panel-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom: 14px;
+}
+
+.prov-panel-head h3{
+  font-size: 1.2em;
+  font-weight: 900;
+}
+
+.prov-mini{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.mini-label{
+  color: var(--text-muted);
+  font-weight: 800;
+  font-size: .85em;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+
+.mini-badge-tech{
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: .85em;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.25);
+}
+
+.mini-badge-tech.warn{ border-color: rgba(255,181,69,0.35); }
+.mini-badge-tech.muted{ opacity: .8; }
+.mini-badge-tech.ok{ border-color: rgba(76,175,80,0.35); }
+
+.prov-row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px){
+  .prov-row{ grid-template-columns: 1fr; }
+}
+
+.prov-label{
+  display:block;
+  color: var(--text-muted);
+  font-weight: 800;
+  font-size: .85em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+
+.prov-field{
+  width:100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 2px solid rgba(255,255,255,0.10);
+  background: rgba(10,14,39,0.65);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  outline:none;
+  transition: .2s ease;
+}
+
+.prov-field:focus{
+  border-color: rgba(108,99,255,0.7);
+  box-shadow: 0 0 0 4px rgba(108,99,255,0.12);
+}
+
+.mono{ font-family: 'JetBrains Mono', monospace; }
+
+.prov-actions{
+  display:flex;
+  gap:10px;
+  align-items:end;
+  justify-content:flex-end;
+}
+
+.prov-btn{
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.25);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-weight: 900;
+  cursor:pointer;
+  transition: .2s ease;
+  width:100%;
+}
+
+.prov-btn:hover{
+  transform: translateY(-2px);
+  border-color: rgba(108,99,255,0.35);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+}
+
+.prov-btn.primary{
+  background: linear-gradient(135deg, rgba(108,99,255,0.9), rgba(88,72,212,0.9));
+  border-color: rgba(108,99,255,0.35);
+}
+
+.prov-btn.danger{
+  background: linear-gradient(135deg, rgba(255,68,68,0.85), rgba(255,107,107,0.7));
+  border-color: rgba(255,68,68,0.35);
+}
+
+.prov-divider{
+  height:1px;
+  background: rgba(255,255,255,0.08);
+  margin: 14px 0;
+}
+
+.prov-timer, .prov-score{
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.timer-label{
+  color: var(--text-muted);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  font-size: .85em;
+  margin-bottom: 6px;
+}
+
+.timer-value{
+  font-size: 2em;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.timer-actions{
+  display:flex;
+  gap:10px;
+}
+
+.timer-actions .prov-btn{ width:auto; flex:1; }
+
+.score-wrap{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin: 8px 0;
+}
+
+.score-btn{
+  width:44px;
+  height:44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.25);
+  color: var(--text);
+  font-weight: 900;
+  cursor:pointer;
+  transition: .2s ease;
+}
+
+.score-btn:hover{ border-color: rgba(108,99,255,0.35); transform: translateY(-2px); }
+
+.score-value{
+  flex:1;
+  text-align:center;
+  font-size: 1.8em;
+  font-weight: 900;
+}
+
+.score-hint{ color: var(--text-muted); font-weight: 700; font-size: .9em; }
+
+.prov-note.small{
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: .9em;
+  line-height: 1.7;
+}
+
+.prov-live-tabs{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom: 12px;
+}
+
+.live-tab{
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.25);
+  color: var(--text-muted);
+  font-weight: 900;
+  cursor:pointer;
+  transition: .2s ease;
+}
+
+.live-tab.active{
+  background: linear-gradient(135deg, rgba(108,99,255,0.9), rgba(88,72,212,0.85));
+  color:#fff;
+  border-color: rgba(108,99,255,0.35);
+}
+
+.live-tab-content{ display:none; }
+.live-tab-content.active{ display:block; }
+
+.live-log{
+  height: 260px;
+  overflow:auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(10,14,39,0.55);
+  padding: 12px;
+}
+
+.live-input{
+  display:flex;
+  gap:10px;
+  margin-top: 12px;
+}
+
+.live-input .prov-btn{ width:auto; }
+
+.chat-msg{
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.check-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+}
+
+@media (max-width: 600px){
+  .check-grid{ grid-template-columns: 1fr; }
+}
+
+.check-item{
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-weight: 800;
+  color: var(--text);
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.prov-textarea{
+  width:100%;
+  min-height: 260px;
+  border-radius: 16px;
+  border: 2px solid rgba(255,255,255,0.10);
+  background: rgba(10,14,39,0.55);
+  color: var(--text);
+  padding: 12px;
+  outline:none;
+}
+
+.prov-textarea:focus{
+  border-color: rgba(108,99,255,0.7);
+  box-shadow: 0 0 0 4px rgba(108,99,255,0.12);
+}
+
+.prov-questions{
+  margin-top: 18px;
+  background: rgba(18,24,46,0.75);
+  border-color: rgba(108,99,255,0.22);
+}
+
+.prov-pill{
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 999px;
+  padding: 10px 12px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.pill-title{ color: var(--text-muted); font-weight: 900; text-transform: uppercase; letter-spacing:.6px; font-size:.85em; }
+.pill-value{ color: var(--text); font-weight: 900; }
+
+.q-wrap{
+  margin-top: 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(10,14,39,0.55);
+  padding: 12px;
+}
+
+.q-list{
+  color: var(--text);
+  font-weight: 700;
+  line-height: 2;
+  padding-left: 20px;
+}
+
+.q-list li{
+  margin-bottom: 6px;
+  color: rgba(232,234,237,0.95);
+}
     </style>
 </head>
 <body>
@@ -1097,95 +1497,210 @@
 			<button class="tab-btn" onclick="openTab(event, 'annunci')">📢 Annunci / Changelog</button>
 			<button class="tab-btn" onclick="openTab(event, 'pex')">🧩 Pex & Depex</button>
 			<button class="tab-btn" onclick="openTab(event, 'provini')">🎤 Provini</button>
-			<button class="tab-btn" onclick="openTab(event, 'staff')">👥 Staff</button>
         </div>
 
 
-		<!-- TAB PROVINI -->
+<!-- TAB PROVINI (ULTRA) -->
 <div id="provini" class="tab-content">
-  <div class="section-card">
-    <h2 class="section-title"><span class="emoji">🎤</span> Centro Provini</h2>
-    <p style="color: var(--text-muted); margin-bottom: 25px;">
-      Seleziona il tipo di provino e avvia la sessione. Le domande “pronte” sono visibili solo ai ruoli autorizzati.
-    </p>
-
-    <div class="provini-top">
-      <div class="provini-box">
-        <h3 class="provini-title">🧩 Tipo provino</h3>
-
-        <label class="provini-label">Seleziona</label>
-        <select id="provinoType" class="provini-select" onchange="renderProvino()">
-          <option value="trial">Trial</option>
-          <option value="helper">Helper</option>
-          <option value="mod">Mod</option>
-          <option value="srmod">SrMod</option>
-          <option value="admin">Admin</option>
-        </select>
-
-        <div class="provini-actions">
-          <button class="quick-btn" onclick="startFullscreen()">🔒 Avvia modalità schermo intero</button>
-          <button class="quick-btn" onclick="createSession()">➕ Crea sessione provino</button>
-        </div>
-
-        <p class="provini-note">
-          ⚠️ Nota: lo schermo intero e il blocco tasti sono <span class="highlight">solo deterrenti</span>.
-          Non esiste un blocco totale da browser.
+  <div class="section-card provini-shell">
+    <div class="provini-hero">
+      <div>
+        <h2 class="provini-title">🎤 Centro Provini — AxisMC</h2>
+        <p class="provini-sub">
+          Mission control per provini staff: sessioni, transcript, note, punteggio e domande guidate.
         </p>
       </div>
 
-      <div class="provini-box">
-        <h3 class="provini-title">💬 Parlare tramite sito</h3>
-
-        <div class="provini-row">
-          <input id="sessionId" class="provini-input" placeholder="ID Sessione (es. AX-1234)" />
-          <button class="quick-btn" onclick="joinSession()">Entra</button>
-        </div>
-
-        <div class="chat-wrap">
-          <div class="chat-log" id="chatLog"></div>
-
-          <div class="chat-input-row">
-            <input id="chatMsg" class="provini-input" placeholder="Scrivi un messaggio..." onkeydown="if(event.key==='Enter'){sendChat();}" />
-            <button class="quick-btn" onclick="sendChat()">Invia</button>
-          </div>
-        </div>
-
-        <p class="provini-note">
-          Per renderla “vera” serve un backend (WebSocket / database). Qui è UI demo.
-        </p>
+      <div class="provini-chipbar">
+        <div class="prov-chip"><span class="dot dot-ok"></span> Secure Mode</div>
+        <div class="prov-chip"><span class="dot dot-warn"></span> Live Session</div>
+        <div class="prov-chip"><span class="dot dot-muted"></span> Logs</div>
       </div>
     </div>
 
-    <!-- DOMANDE (solo staff autorizzato) -->
-    <div class="section-card" style="background: var(--dark-lighter); margin-top: 20px;">
-      <h3 class="section-title"><span class="emoji">📋</span> Domande pronte (Staff)</h3>
+    <!-- CONTROL PANEL -->
+    <div class="provini-grid">
+      <!-- LEFT: Session Control -->
+      <div class="prov-panel">
+        <div class="prov-panel-head">
+          <h3>🧠 Control Room</h3>
+          <div class="prov-mini">
+            <span class="mini-label">Sessione</span>
+            <span id="provSessionBadge" class="mini-badge-tech">—</span>
+          </div>
+        </div>
+
+        <div class="prov-row">
+          <div>
+            <label class="prov-label">Tipo provino</label>
+            <select id="provinoType" class="prov-field" onchange="provinoRender()">
+              <option value="trial">Trial</option>
+              <option value="helper">Helper</option>
+              <option value="mod">Mod</option>
+              <option value="srmod">SrMod</option>
+              <option value="admin">Admin</option>
+              <option value="owner">Owner</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="prov-label">Candidato</label>
+            <input id="candidateName" class="prov-field" placeholder="Nickname candidato (es. Player123)" />
+          </div>
+        </div>
+
+        <div class="prov-row">
+          <div>
+            <label class="prov-label">ID Sessione</label>
+            <input id="sessionId" class="prov-field mono" placeholder="AX-PROV-0000" />
+          </div>
+          <div class="prov-actions">
+            <button class="prov-btn primary" onclick="provCreateSession()">➕ Crea</button>
+            <button class="prov-btn" onclick="provJoinSession()">↪ Entra</button>
+          </div>
+        </div>
+
+        <div class="prov-divider"></div>
+
+        <div class="prov-row">
+          <div class="prov-timer">
+            <div class="timer-label">⏱️ Timer</div>
+            <div id="timerValue" class="timer-value mono">00:00</div>
+            <div class="timer-actions">
+              <button class="prov-btn" onclick="timerStart()">Start</button>
+              <button class="prov-btn" onclick="timerPause()">Pausa</button>
+              <button class="prov-btn danger" onclick="timerReset()">Reset</button>
+            </div>
+          </div>
+
+          <div class="prov-score">
+            <div class="timer-label">⭐ Punteggio</div>
+            <div class="score-wrap">
+              <button class="score-btn" onclick="scoreAdd(-1)">−</button>
+              <div id="scoreValue" class="score-value mono">0</div>
+              <button class="score-btn" onclick="scoreAdd(1)">+</button>
+            </div>
+            <div class="score-hint">Usa il punteggio come valutazione rapida.</div>
+          </div>
+        </div>
+
+        <div class="prov-divider"></div>
+
+        <div class="prov-row">
+          <button class="prov-btn" onclick="startFullscreen()">🖥️ Fullscreen</button>
+          <button class="prov-btn" onclick="provExport()">📦 Export Report</button>
+          <button class="prov-btn" onclick="provClearLocal()">🧹 Pulisci</button>
+        </div>
+
+        <div class="prov-note small">
+          ⚠️ Fullscreen/anti-devtools sono solo deterrenti. Protezione reale = server che non invia le domande ai non staff.
+        </div>
+      </div>
+
+      <!-- RIGHT: Live Console -->
+      <div class="prov-panel">
+        <div class="prov-panel-head">
+          <h3>📡 Live Console</h3>
+          <div class="prov-mini">
+            <span class="mini-label">Stato</span>
+            <span id="liveStatus" class="mini-badge-tech warn">Standby</span>
+          </div>
+        </div>
+
+        <div class="prov-live">
+          <div class="prov-live-tabs">
+            <button class="live-tab active" onclick="provOpenLiveTab(event,'chat')">💬 Chat</button>
+            <button class="live-tab" onclick="provOpenLiveTab(event,'transcript')">🧾 Transcript</button>
+            <button class="live-tab" onclick="provOpenLiveTab(event,'checklist')">✅ Checklist</button>
+            <button class="live-tab" onclick="provOpenLiveTab(event,'notes')">📝 Note</button>
+          </div>
+
+          <!-- CHAT -->
+          <div id="live_chat" class="live-tab-content active">
+            <div id="chatLog" class="live-log"></div>
+            <div class="live-input">
+              <input id="chatMsg" class="prov-field mono" placeholder="Scrivi… (Enter per inviare)" onkeydown="if(event.key==='Enter'){sendChat();}">
+              <button class="prov-btn primary" onclick="sendChat()">Invia</button>
+            </div>
+          </div>
+
+          <!-- TRANSCRIPT -->
+          <div id="live_transcript" class="live-tab-content">
+            <div class="prov-row">
+              <button class="prov-btn" onclick="copyTranscript()">📋 Copia transcript</button>
+              <button class="prov-btn" onclick="clearTranscript()">🗑️ Svuota transcript</button>
+            </div>
+            <div id="transcriptBox" class="live-log mono"></div>
+          </div>
+
+          <!-- CHECKLIST -->
+          <div id="live_checklist" class="live-tab-content">
+            <div class="check-grid">
+              <label class="check-item"><input type="checkbox" onchange="checkSave()"> Presentazione chiara</label>
+              <label class="check-item"><input type="checkbox" onchange="checkSave()"> Tono rispettoso</label>
+              <label class="check-item"><input type="checkbox" onchange="checkSave()"> Conosce procedure ticket</label>
+              <label class="check-item"><input type="checkbox" onchange="checkSave()"> Conosce limiti rank</label>
+              <label class="check-item"><input type="checkbox" onchange="checkSave()"> Gestione casi tossici</label>
+              <label class="check-item"><input type="checkbox" onchange="checkSave()"> Escalation corretta</label>
+            </div>
+          </div>
+
+          <!-- NOTES -->
+          <div id="live_notes" class="live-tab-content">
+            <textarea id="notesBox" class="prov-textarea mono" placeholder="Note del provino... (si salva in locale)" oninput="notesSave()"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS (STAFF ONLY) -->
+    <div class="section-card prov-questions">
+      <div class="prov-panel-head">
+        <h3>📋 Domande guidate</h3>
+        <div class="prov-mini">
+          <span class="mini-label">Visibilità</span>
+          <span id="qVisibility" class="mini-badge-tech muted">—</span>
+        </div>
+      </div>
 
       <div id="staffQuestionsLock" class="warning-box" style="display:none;">
-        Accesso negato: questa sezione è riservata ad Admin/Owner.
+        Accesso negato: solo staff può vedere le domande.
       </div>
 
       <div id="staffQuestions" style="display:none;">
-        <p style="color: var(--text-muted); margin-bottom: 15px;">
-          Scegli il provino: le domande cambiano automaticamente.
-        </p>
-
-        <div class="ticket-category">
-          <div class="category-header">
-            🧠 Script domande — <span id="qTitle" class="highlight">—</span>
+        <div class="prov-row">
+          <div class="prov-pill">
+            <span class="pill-title">Tipo:</span>
+            <span id="qTitle" class="pill-value mono">—</span>
           </div>
-
-          <ol id="qList" style="color: var(--text-muted); line-height: 2; padding-left: 20px;"></ol>
-
-          <div class="command-box" onclick="copyCommand(document.getElementById('qList').innerText)">
-            <span class="command-text">📌 Copia tutte le domande</span>
-            <button class="copy-btn">Copia</button>
+          <div class="prov-pill">
+            <span class="pill-title">Candidato:</span>
+            <span id="qCandidate" class="pill-value mono">—</span>
           </div>
+          <div class="prov-pill">
+            <span class="pill-title">Sessione:</span>
+            <span id="qSession" class="pill-value mono">—</span>
+          </div>
+        </div>
+
+        <div class="q-wrap">
+          <ol id="qList" class="q-list"></ol>
+        </div>
+
+        <div class="prov-row">
+          <button class="prov-btn" onclick="copyQuestions()">📌 Copia domande</button>
+          <button class="prov-btn" onclick="pushQuestionsToTranscript()">↘ Inserisci nel transcript</button>
+        </div>
+
+        <div class="prov-note small">
+          ✅ Consiglio: quando integri backend, rendi questa sezione server-side: se non staff → risposta 403 e zero domande.
         </div>
       </div>
     </div>
 
   </div>
 </div>
+		
     <!-- TAB PEX & DEPEX -->
         <div id="pex" class="tab-content">
            <div class="section-card">
@@ -2510,6 +3025,334 @@ document.addEventListener("fullscreenchange", () => {
                     opacity: 0;
                 }
             }
+			// ==========================
+// AUTH (DEMO) - IMPORTANTISSIMO
+// ==========================
+// Qui è DEMO. Nel progetto vero devi prendere ruolo da backend (session/cookie).
+// E SOPRATTUTTO: le domande NON devono essere nel JS pubblico.
+const CURRENT_USER = {
+  role: "admin", // "guest" se non loggato, oppure "trial/helper/mod/srmod/admin/owner"
+  isStaff: true  // metti true solo per staff
+};
+
+// ==========================
+// QUESTION BANK (PLACEHOLDER)
+// quando mi mandi le domande, lo riempio bene.
+// Nel progetto vero: fetch dal server SOLO SE staff.
+// ==========================
+const QUESTION_BANK = {
+  trial: ["(placeholder) domanda 1", "(placeholder) domanda 2"],
+  helper: ["(placeholder) domanda 1", "(placeholder) domanda 2"],
+  mod: ["(placeholder) domanda 1", "(placeholder) domanda 2"],
+  srmod: ["(placeholder) domanda 1", "(placeholder) domanda 2"],
+  admin: ["(placeholder) domanda 1", "(placeholder) domanda 2"],
+  owner: ["(placeholder) domanda 1", "(placeholder) domanda 2"]
+};
+
+// ==========================
+// STATE
+// ==========================
+let currentSession = "";
+let transcript = [];
+let score = 0;
+
+// ==========================
+// UI HELPERS
+// ==========================
+function setLiveStatus(type, text){
+  const el = document.getElementById("liveStatus");
+  el.textContent = text;
+  el.classList.remove("ok","warn","muted");
+  el.classList.add(type);
+}
+
+function provinoRender(){
+  const type = document.getElementById("provinoType").value;
+  const candidate = document.getElementById("candidateName").value.trim() || "—";
+
+  // STAFF ONLY QUESTIONS
+  const qLock = document.getElementById("staffQuestionsLock");
+  const qBox = document.getElementById("staffQuestions");
+  const qVis = document.getElementById("qVisibility");
+
+  if (!CURRENT_USER.isStaff) {
+    qLock.style.display = "block";
+    qBox.style.display = "none";
+    qVis.textContent = "Non staff";
+    qVis.className = "mini-badge-tech muted";
+  } else {
+    qLock.style.display = "none";
+    qBox.style.display = "block";
+    qVis.textContent = "Staff";
+    qVis.className = "mini-badge-tech ok";
+  }
+
+  // header pills
+  document.getElementById("qTitle").textContent = type.toUpperCase();
+  document.getElementById("qCandidate").textContent = candidate;
+  document.getElementById("qSession").textContent = currentSession || "—";
+
+  // render questions
+  const qList = document.getElementById("qList");
+  qList.innerHTML = "";
+
+  if (CURRENT_USER.isStaff) {
+    (QUESTION_BANK[type] || []).forEach(q => {
+      const li = document.createElement("li");
+      li.textContent = q;
+      qList.appendChild(li);
+    });
+  }
+}
+
+provinoRender();
+
+// ==========================
+// SESSION
+// ==========================
+function provCreateSession(){
+  const base = Math.floor(1000 + Math.random() * 9000);
+  currentSession = `AX-PROV-${base}`;
+  document.getElementById("sessionId").value = currentSession;
+  document.getElementById("provSessionBadge").textContent = currentSession;
+  setLiveStatus("ok","Live");
+  logChat("SYSTEM", `Sessione creata: ${currentSession}`);
+  addTranscript("SYSTEM", `Sessione creata: ${currentSession}`);
+  provinoRender();
+}
+
+function provJoinSession(){
+  const id = document.getElementById("sessionId").value.trim();
+  if(!id) return;
+  currentSession = id;
+  document.getElementById("provSessionBadge").textContent = currentSession;
+  setLiveStatus("ok","Live");
+  logChat("SYSTEM", `Entrato in sessione: ${currentSession}`);
+  addTranscript("SYSTEM", `Entrato in sessione: ${currentSession}`);
+  provinoRender();
+}
+
+// ==========================
+// CHAT + TRANSCRIPT
+// ==========================
+function logChat(who, text){
+  const log = document.getElementById("chatLog");
+  const div = document.createElement("div");
+  div.className = "chat-msg";
+  div.textContent = `[${who}] ${text}`;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
+
+function addTranscript(who, text){
+  const time = new Date().toLocaleTimeString();
+  transcript.push(`[${time}] [${who}] ${text}`);
+  renderTranscript();
+}
+
+function renderTranscript(){
+  const box = document.getElementById("transcriptBox");
+  box.textContent = transcript.join("\n");
+}
+
+function sendChat(){
+  const msgEl = document.getElementById("chatMsg");
+  const msg = msgEl.value.trim();
+  if(!msg) return;
+
+  if(!currentSession){
+    logChat("SYSTEM","Crea o entra in una sessione prima.");
+    return;
+  }
+
+  logChat("ME", msg);
+  addTranscript("ME", msg);
+  msgEl.value = "";
+}
+
+function copyTranscript(){
+  navigator.clipboard.writeText(transcript.join("\n"));
+  logChat("SYSTEM","Transcript copiato.");
+}
+
+function clearTranscript(){
+  transcript = [];
+  renderTranscript();
+  logChat("SYSTEM","Transcript svuotato.");
+}
+
+// ==========================
+// CHECKLIST + NOTES (LOCAL)
+// ==========================
+function checkSave(){
+  const checks = Array.from(document.querySelectorAll("#live_checklist input[type='checkbox']")).map(c=>c.checked);
+  localStorage.setItem("prov_checklist", JSON.stringify(checks));
+}
+
+(function checkLoad(){
+  const raw = localStorage.getItem("prov_checklist");
+  if(!raw) return;
+  try{
+    const checks = JSON.parse(raw);
+    const inputs = document.querySelectorAll("#live_checklist input[type='checkbox']");
+    inputs.forEach((inp,i)=> inp.checked = !!checks[i]);
+  }catch(e){}
+})();
+
+function notesSave(){
+  localStorage.setItem("prov_notes", document.getElementById("notesBox").value);
+}
+
+(function notesLoad(){
+  const raw = localStorage.getItem("prov_notes");
+  if(raw) document.getElementById("notesBox").value = raw;
+})();
+
+// ==========================
+// SCORE
+// ==========================
+function scoreAdd(delta){
+  score += delta;
+  document.getElementById("scoreValue").textContent = String(score);
+}
+
+// ==========================
+// TIMER
+// ==========================
+let timerSec = 0;
+let timerInt = null;
+
+function formatTime(s){
+  const m = Math.floor(s/60);
+  const r = s % 60;
+  const mm = String(m).padStart(2,"0");
+  const rr = String(r).padStart(2,"0");
+  return `${mm}:${rr}`;
+}
+
+function timerStart(){
+  if(timerInt) return;
+  timerInt = setInterval(()=>{
+    timerSec++;
+    document.getElementById("timerValue").textContent = formatTime(timerSec);
+  },1000);
+  setLiveStatus("ok","Live");
+}
+
+function timerPause(){
+  if(!timerInt) return;
+  clearInterval(timerInt);
+  timerInt = null;
+  setLiveStatus("warn","Pausa");
+}
+
+function timerReset(){
+  if(timerInt){
+    clearInterval(timerInt);
+    timerInt = null;
+  }
+  timerSec = 0;
+  document.getElementById("timerValue").textContent = "00:00";
+  setLiveStatus("warn","Standby");
+}
+
+// ==========================
+// QUESTIONS ACTIONS
+// ==========================
+function copyQuestions(){
+  if(!CURRENT_USER.isStaff) return;
+  const type = document.getElementById("provinoType").value;
+  const txt = (QUESTION_BANK[type] || []).map((q,i)=>`${i+1}. ${q}`).join("\n");
+  navigator.clipboard.writeText(txt);
+  logChat("SYSTEM","Domande copiate.");
+}
+
+function pushQuestionsToTranscript(){
+  if(!CURRENT_USER.isStaff) return;
+  const type = document.getElementById("provinoType").value;
+  addTranscript("SYSTEM", `--- DOMANDE (${type.toUpperCase()}) ---`);
+  (QUESTION_BANK[type] || []).forEach((q,i)=> addTranscript("Q", `${i+1}. ${q}`));
+}
+
+// ==========================
+// EXPORT REPORT (LOCAL FILE)
+// ==========================
+function provExport(){
+  const type = document.getElementById("provinoType").value;
+  const candidate = document.getElementById("candidateName").value.trim() || "—";
+  const notes = document.getElementById("notesBox").value || "";
+  const time = document.getElementById("timerValue").textContent;
+
+  const report = {
+    session: currentSession || null,
+    candidate,
+    type,
+    score,
+    duration: time,
+    transcript,
+    notes,
+    date: new Date().toISOString()
+  };
+
+  const blob = new Blob([JSON.stringify(report, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `provino_${candidate}_${type}_${currentSession || "no-session"}.json`.replaceAll(" ","_");
+  a.click();
+  URL.revokeObjectURL(a.href);
+
+  logChat("SYSTEM","Report esportato (JSON).");
+}
+
+// ==========================
+// CLEAR LOCAL
+// ==========================
+function provClearLocal(){
+  localStorage.removeItem("prov_notes");
+  localStorage.removeItem("prov_checklist");
+  document.getElementById("notesBox").value = "";
+  const inputs = document.querySelectorAll("#live_checklist input[type='checkbox']");
+  inputs.forEach(i=> i.checked=false);
+  logChat("SYSTEM","Pulito (note/checklist).");
+}
+
+// ==========================
+// LIVE TABS
+// ==========================
+function provOpenLiveTab(evt, tab){
+  const tabs = document.getElementsByClassName("live-tab");
+  for(let i=0;i<tabs.length;i++) tabs[i].classList.remove("active");
+
+  const contents = document.getElementsByClassName("live-tab-content");
+  for(let i=0;i<contents.length;i++) contents[i].classList.remove("active");
+
+  evt.currentTarget.classList.add("active");
+  document.getElementById("live_"+tab).classList.add("active");
+}
+
+// ==========================
+// FULLSCREEN (deterrente)
+// ==========================
+function startFullscreen(){
+  const el = document.documentElement;
+  if (el.requestFullscreen) el.requestFullscreen();
+  logChat("SYSTEM","Fullscreen richiesto.");
+  addTranscript("SYSTEM","Fullscreen richiesto.");
+}
+
+// ==========================
+// DETERRING KEYS (bypassabile)
+// ==========================
+document.addEventListener("keydown", (e) => {
+  if (e.key === "F12") e.preventDefault();
+  if (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) e.preventDefault();
+  if (e.ctrlKey && e.key.toUpperCase() === "U") e.preventDefault();
+  if (e.key === "F11") e.preventDefault();
+});
+
+document.addEventListener("fullscreenchange", () => {
+  if (!document.fullscreenElement) logChat("SYSTEM","Uscito dal fullscreen.");
+});
         `;
         document.head.appendChild(style);
     </script>
