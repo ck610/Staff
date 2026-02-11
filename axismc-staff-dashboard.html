@@ -895,60 +895,360 @@
         <div id="comandimc" class="tab-content">
             <div class="section-card">
                 <h2 class="section-title"><span class="emoji">⛏️</span> Comandi In-Game Minecraft</h2>
-                <p style="color: var(--text-muted); margin-bottom: 30px;">Permessi comandi per ogni rank dello staff nel server Minecraft.</p>
+                <p style="color: var(--text-muted); margin-bottom: 30px;">Permessi comandi per ogni rank dello staff nel server Minecraft. Leggi attentamente i limiti del tuo rank!</p>
 
                 <div class="warning-box">
-                    ⚠️ REGOLE COMANDI: No Abuse, Prove Obbligatorie, Rispetto sempre!
+                    ⚠️ ATTENZIONE: Abusare dei comandi porta al DE-RANK IMMEDIATO. Prove obbligatorie per ban/mute!
                 </div>
 
                 <!-- Manager -->
                 <div class="ticket-category" style="border-left-color: #FF4444;">
                     <div class="category-header">
-                        Manager - Tutti i Comandi
+                        <span style="background: linear-gradient(135deg, #FF6B6B 0%, #FF4444 100%); color: white; padding: 6px 14px; border-radius: 6px; font-size: 0.85em; font-weight: 700; margin-right: 8px;">MANAGER</span>
+                        Permessi Completi
                     </div>
                     <div class="response-box">
-                        <strong>🔥 Permessi completi:</strong> Accesso a TUTTI i comandi disponibili (*)
+                        <strong>🔥 Accesso Totale:</strong> * (tutti i comandi disponibili)<br><br>
+                        Il Manager ha accesso illimitato a TUTTI i comandi del server, inclusi comandi amministrativi, di configurazione e moderazione. Nessuna restrizione.
                     </div>
                 </div>
 
                 <!-- SrAdmin -->
                 <div class="ticket-category" style="border-left-color: #FF8E53;">
                     <div class="category-header">
-                        SrAdmin - Tutti i Comandi
+                        <span style="background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); color: white; padding: 6px 14px; border-radius: 6px; font-size: 0.85em; font-weight: 700; margin-right: 8px;">SR.ADMIN</span>
+                        Permessi Completi
                     </div>
                     <div class="response-box">
-                        <strong>🔥 Permessi completi:</strong> Accesso a TUTTI i comandi disponibili (*)
+                        <strong>🔥 Accesso Totale:</strong> * (tutti i comandi disponibili)<br><br>
+                        Il SrAdmin ha accesso illimitato a TUTTI i comandi del server. Stesso livello di permessi del Manager.
                     </div>
                 </div>
 
                 <!-- Admin -->
                 <div class="ticket-category" style="border-left-color: #FFB545;">
                     <div class="category-header">
-                        Admin - Tutti i Comandi
+                        <span style="background: linear-gradient(135deg, #FFB545 0%, #FF8E53 100%); color: white; padding: 6px 14px; border-radius: 6px; font-size: 0.85em; font-weight: 700; margin-right: 8px;">ADMIN</span>
+                        Permessi Completi
                     </div>
                     <div class="response-box">
-                        <strong>🔥 Permessi completi:</strong> Accesso a TUTTI i comandi disponibili (*)
+                        <strong>🔥 Accesso Totale:</strong> * (tutti i comandi disponibili)<br><br>
+                        L'Admin ha accesso illimitato a TUTTI i comandi del server. Stesso livello di permessi del Manager e SrAdmin.
                     </div>
                 </div>
 
-                <!-- Regole sui Comandi -->
+                <!-- SrMod -->
+                <div class="ticket-category" style="border-left-color: #4CAF50;">
+                    <div class="category-header">
+                        <span style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; padding: 6px 14px; border-radius: 6px; font-size: 0.85em; font-weight: 700; margin-right: 8px;">SR.MOD</span>
+                        Moderazione Completa
+                    </div>
+                    
+                    <div class="response-box">
+                        <strong>✅ PERMESSI SENZA LIMITI:</strong> Ban permanenti, mute permanenti, IP ban, controllo completo moderazione
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; margin: 15px 0;">
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/ban</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/unban</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/mute</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/unmute</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/tempban</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/tempmute</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/kick</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/warn</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/ipban</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/ipmute</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/unwarn</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/history</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/staffhistory</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/banlist</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/warnlist</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/mutelist</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/dupeip</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/ipreport</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/checkban</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/checkmute</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/checkwarn</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/lockdown</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/lastuuid</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/notify (all)</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/ss</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/finish</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/sspectate</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/ssinfo</div>
+                    </div>
+                </div>
+
+                <!-- Mod -->
+                <div class="ticket-category" style="border-left-color: #6C63FF;">
+                    <div class="category-header">
+                        <span style="background: linear-gradient(135deg, #6C63FF 0%, #5848d4 100%); color: white; padding: 6px 14px; border-radius: 6px; font-size: 0.85em; font-weight: 700; margin-right: 8px;">MOD</span>
+                        Moderazione Standard
+                    </div>
+                    
+                    <div class="response-box">
+                        <strong>⚠️ LIMITI IMPORTANTI:</strong><br>
+                        • Ban fino a <span class="highlight">1 MESE MASSIMO</span><br>
+                        • Mute fino a <span class="highlight">1 GIORNO MASSIMO</span><br>
+                        • Group: <span class="highlight">mod</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; margin: 15px 0;">
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--warning);">/tempban <small>(max 1m)</small></div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--warning);">/tempmute <small>(max 1d)</small></div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/warn</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/history</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/staffhistory</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/banlist</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/warnlist</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/mutelist</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/dupeip</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/checkban</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/checkmute</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/checkwarn</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/notify (all)</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/ss</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/finish</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/sspectate</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/ssinfo</div>
+                    </div>
+                </div>
+
+                <!-- Helper -->
+                <div class="ticket-category" style="border-left-color: #00BCD4;">
+                    <div class="category-header">
+                        <span style="background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%); color: white; padding: 6px 14px; border-radius: 6px; font-size: 0.85em; font-weight: 700; margin-right: 8px;">HELPER</span>
+                        Moderazione Base
+                    </div>
+                    
+                    <div class="response-box">
+                        <strong>⚠️ LIMITI IMPORTANTI:</strong><br>
+                        • Ban fino a <span class="highlight">1 MESE MASSIMO</span><br>
+                        • Mute fino a <span class="highlight">1 GIORNO MASSIMO</span><br>
+                        • Group: <span class="highlight">helper</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; margin: 15px 0;">
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--warning);">/tempban <small>(max 1m)</small></div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--warning);">/tempmute <small>(max 1d)</small></div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/warn</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/history</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/staffhistory</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/banlist</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/warnlist</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/mutelist</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/dupeip</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/checkban</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/checkmute</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/checkwarn</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/notify (all)</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/ss</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/finish</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/sspectate</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/ssinfo</div>
+                    </div>
+                </div>
+
+                <!-- Trial -->
+                <div class="ticket-category" style="border-left-color: #9E9E9E;">
+                    <div class="category-header">
+                        <span style="background: linear-gradient(135deg, #9E9E9E 0%, #757575 100%); color: white; padding: 6px 14px; border-radius: 6px; font-size: 0.85em; font-weight: 700; margin-right: 8px;">TRIAL</span>
+                        Moderazione Limitata
+                    </div>
+                    
+                    <div class="response-box">
+                        <strong>⚠️ LIMITI STRETTI:</strong><br>
+                        • Ban fino a <span class="highlight">3 GIORNI MASSIMO</span><br>
+                        • Mute fino a <span class="highlight">1 GIORNO MASSIMO</span><br>
+                        • Group: <span class="highlight">helper</span> (stesso del Helper ma con limiti più bassi)
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; margin: 15px 0;">
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--danger);">/tempban <small>(max 3d)</small></div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--warning);">/tempmute <small>(max 1d)</small></div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/warn</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/history</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/staffhistory</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/banlist</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/warnlist</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/mutelist</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/dupeip</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/checkban</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/checkmute</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/checkwarn</div>
+                        <div style="background: var(--dark); padding: 8px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border-left: 3px solid var(--primary);">/notify (all)</div>
+                    </div>
+
+                    <div class="warning-box">
+                        ⚠️ I Trial NON hanno accesso ai comandi di screenshare (/ss, /finish, /sspectate, /ssinfo). Devono chiamare uno staff senior per SS.
+                    </div>
+                </div>
+
+                <!-- REGOLE FONDAMENTALI -->
                 <div class="section-card" style="background: var(--dark-lighter); margin-top: 30px;">
-                    <h3 class="section-title"><span class="emoji">📋</span> Regole Fondamentali</h3>
+                    <h3 class="section-title"><span class="emoji">📋</span> Regole Fondamentali sui Comandi</h3>
                     
                     <div class="warning-box">
-                        <strong>1. NO ABUSE:</strong><br>
-                        È VIETATO usare i comandi per vantaggi personali. L'abuso porta al DE-RANK IMMEDIATO.
+                        <strong>1. NO ABUSE</strong><br>
+                        È <strong>VIETATO</strong> usare i comandi per vantaggi personali:<br>
+                        • Darsi oggetti in sopravvivenza<br>
+                        • Usare vanish per griffare<br>
+                        • TP per rubare/uccidere player<br>
+                        • Qualsiasi altro uso non autorizzato<br><br>
+                        <strong style="color: var(--danger);">⚠️ SANZIONE: DE-RANK IMMEDIATO + possibile ban</strong>
                     </div>
 
                     <div class="warning-box">
-                        <strong>2. PROVE OBBLIGATORIE:</strong><br>
-                        Ogni volta che usi /ban o /mute, DEVI avere uno screenshot o video della prova. Senza prove = sanzione non valida.
+                        <strong>2. PROVE OBBLIGATORIE</strong><br>
+                        Ogni volta che usi <span class="highlight">/ban</span> o <span class="highlight">/mute</span>, DEVI avere:<br>
+                        • Screenshot della chat/azione<br>
+                        • Video se possibile<br>
+                        • Log del server come backup<br><br>
+                        <strong style="color: var(--danger);">⚠️ SENZA PROVE = SANZIONE NON VALIDA</strong><br>
+                        Il player può fare appello e il tuo ban verrà revocato se non hai prove!
                     </div>
 
                     <div class="warning-box">
-                        <strong>3. RISPETTO:</strong><br>
-                        NON usare comandi per infastidire i player. I comandi sono strumenti di lavoro, non giocattoli.
+                        <strong>3. RISPETTO</strong><br>
+                        NON usare i comandi per infastidire i player:<br>
+                        • <span class="highlight">/kick</span> solo per motivi validi<br>
+                        • <span class="highlight">/tp</span> solo per moderazione, non per curiosare<br>
+                        • <span class="highlight">/vanish</span> per osservare, non per trollare<br><br>
+                        I comandi sono <strong>strumenti di lavoro</strong>, non giocattoli!
                     </div>
+                </div>
+
+                <!-- GUIDA RAPIDA COMANDI -->
+                <div class="section-card" style="background: var(--dark-lighter); margin-top: 20px;">
+                    <h3 class="section-title"><span class="emoji">📖</span> Guida Rapida Comandi Principali</h3>
+
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">🔨 /ban [player] [motivo]</h4>
+                        <p style="color: var(--text-muted); line-height: 1.8;">
+                            Ban permanente. Richiede prove screenshot/video. <strong>Solo SrMod+</strong><br>
+                            Esempio: <span class="highlight">/ban Player123 Hack confermato - Video allegato</span>
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">⏱️ /tempban [player] [tempo] [motivo]</h4>
+                        <p style="color: var(--text-muted); line-height: 1.8;">
+                            Ban temporaneo. Formato tempo: <span class="highlight">1d</span> = 1 giorno, <span class="highlight">3h</span> = 3 ore, <span class="highlight">30m</span> = 30 minuti<br>
+                            Esempio: <span class="highlight">/tempban Player123 7d Insulti gravi ripetuti</span><br>
+                            <strong style="color: var(--warning);">⚠️ Rispetta i limiti del tuo rank!</strong>
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">🔇 /mute [player] [motivo]</h4>
+                        <p style="color: var(--text-muted); line-height: 1.8;">
+                            Mute permanente. Richiede prove. <strong>Solo SrMod+</strong><br>
+                            Esempio: <span class="highlight">/mute Player123 Spam dopo 3 warn</span>
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">⏱️ /tempmute [player] [tempo] [motivo]</h4>
+                        <p style="color: var(--text-muted); line-height: 1.8;">
+                            Mute temporaneo. Rispetta i limiti del tuo rank!<br>
+                            Esempio: <span class="highlight">/tempmute Player123 6h Spam in chat</span>
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">⚠️ /warn [player] [motivo]</h4>
+                        <p style="color: var(--text-muted); line-height: 1.8;">
+                            Warning al player. Tutti i rank staff possono usarlo.<br>
+                            Esempio: <span class="highlight">/warn Player123 Linguaggio inappropriato</span><br>
+                            <em style="color: var(--text);">💡 3 warn = sanzione automatica più grave</em>
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">📋 /history [player]</h4>
+                        <p style="color: var(--text-muted); line-height: 1.8;">
+                            Vedi lo storico sanzioni di un player (ban, mute, warn)<br>
+                            <em style="color: var(--text);">💡 Controlla sempre prima di bannare - recidivi meritano sanzioni più pesanti!</em>
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">🖥️ /ss [player]</h4>
+                        <p style="color: var(--text-muted); line-height: 1.8;">
+                            Avvia screenshare (controllo anti-cheat). Congela il player e avvia la procedura.<br>
+                            <strong style="color: var(--danger);">⚠️ Solo Mod+</strong> | Trial deve chiamare staff senior<br>
+                            Esempio: <span class="highlight">/ss Player123</span>
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">🔍 /dupeip [player]</h4>
+                        <p style="color: var(--text-muted); line-height: 1.8;">
+                            Controlla se ci sono altri account con lo stesso IP (multi-account)<br>
+                            Utile per identificare ban evaders o account fake
+                        </p>
+                    </div>
+                </div>
+
+                <!-- TABELLA RIEPILOGO LIMITI -->
+                <div class="section-card" style="background: var(--dark-lighter); margin-top: 20px;">
+                    <h3 class="section-title"><span class="emoji">📊</span> Tabella Riepilogo Limiti</h3>
+                    
+                    <table style="width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--dark); border-radius: 12px; overflow: hidden;">
+                        <thead>
+                            <tr style="background: var(--primary);">
+                                <th style="color: white; padding: 15px; text-align: left; font-weight: 700;">Rank</th>
+                                <th style="color: white; padding: 15px; text-align: left; font-weight: 700;">Ban Massimo</th>
+                                <th style="color: white; padding: 15px; text-align: left; font-weight: 700;">Mute Massimo</th>
+                                <th style="color: white; padding: 15px; text-align: left; font-weight: 700;">Screenshare</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 15px; color: var(--text); font-weight: 700;">Manager</td>
+                                <td style="padding: 15px; color: var(--success);">Illimitato</td>
+                                <td style="padding: 15px; color: var(--success);">Illimitato</td>
+                                <td style="padding: 15px; color: var(--success);">✅ Sì</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.02);">
+                                <td style="padding: 15px; color: var(--text); font-weight: 700;">SrAdmin</td>
+                                <td style="padding: 15px; color: var(--success);">Illimitato</td>
+                                <td style="padding: 15px; color: var(--success);">Illimitato</td>
+                                <td style="padding: 15px; color: var(--success);">✅ Sì</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 15px; color: var(--text); font-weight: 700;">Admin</td>
+                                <td style="padding: 15px; color: var(--success);">Illimitato</td>
+                                <td style="padding: 15px; color: var(--success);">Illimitato</td>
+                                <td style="padding: 15px; color: var(--success);">✅ Sì</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.02);">
+                                <td style="padding: 15px; color: var(--text); font-weight: 700;">SrMod</td>
+                                <td style="padding: 15px; color: var(--success);">Illimitato</td>
+                                <td style="padding: 15px; color: var(--success);">Illimitato</td>
+                                <td style="padding: 15px; color: var(--success);">✅ Sì</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 15px; color: var(--text); font-weight: 700;">Mod</td>
+                                <td style="padding: 15px; color: var(--warning);">1 Mese</td>
+                                <td style="padding: 15px; color: var(--warning);">1 Giorno</td>
+                                <td style="padding: 15px; color: var(--success);">✅ Sì</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.02);">
+                                <td style="padding: 15px; color: var(--text); font-weight: 700;">Helper</td>
+                                <td style="padding: 15px; color: var(--warning);">1 Mese</td>
+                                <td style="padding: 15px; color: var(--warning);">1 Giorno</td>
+                                <td style="padding: 15px; color: var(--success);">✅ Sì</td>
+                            </tr>
+                            <tr style="background: rgba(255,255,255,0.02);">
+                                <td style="padding: 15px; color: var(--text); font-weight: 700;">Trial</td>
+                                <td style="padding: 15px; color: var(--danger);">3 Giorni</td>
+                                <td style="padding: 15px; color: var(--warning);">1 Giorno</td>
+                                <td style="padding: 15px; color: var(--danger);">❌ No</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
