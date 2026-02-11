@@ -2786,576 +2786,168 @@
   </div>
 </div>
 
-    <script>
-        function openTab(evt, tabName) {
-            const tabContents = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
-            }
-            
-            const tabBtns = document.getElementsByClassName("tab-btn");
-            for (let i = 0; i < tabBtns.length; i++) {
-                tabBtns[i].classList.remove("active");
-            }
-            
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
+<script>
+  // =========================
+  // TAB SYSTEM
+  // =========================
+  function openTab(evt, tabName) {
+    // Nascondi tutte le tab
+    const tabContents = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < tabContents.length; i++) {
+      tabContents[i].classList.remove("active");
+    }
 
-        function copyCommand(command) {
-            navigator.clipboard.writeText(command).then(function() {
-                // Feedback visivo
-                const notification = document.createElement('div');
-                notification.textContent = '✅ Comando copiato!';
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: linear-gradient(135deg, var(--success) 0%, #45a049 100%);
-                    color: white;
-                    padding: 15px 25px;
-                    border-radius: 10px;
-                    font-weight: 600;
-                    box-shadow: 0 5px 25px rgba(76, 175, 80, 0.4);
-                    z-index: 10000;
-                    animation: slideInRight 0.3s ease;
-                `;
-                document.body.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.style.animation = 'slideOutRight 0.3s ease';
-                    setTimeout(() => notification.remove(), 300);
-                }, 2000);
-            });
-        }
+    // Disattiva tutti i bottoni tab
+    const tabBtns = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabBtns.length; i++) {
+      tabBtns[i].classList.remove("active");
+    }
 
-		function searchStaff() {
-          const input = document.getElementById('staffSearch');
-          const filter = input.value.toLowerCase();
-          const cards = document.querySelectorAll('[data-staffer]');
+    // Mostra tab selezionata (se esiste)
+    const target = document.getElementById(tabName);
+    if (target) target.classList.add("active");
 
-         cards.forEach(card => {
-         const text = card.textContent.toLowerCase();
-         card.style.display = text.includes(filter) ? 'block' : 'none';
-     }); 
-   }
-		
-        function searchCommands() {
-            const input = document.getElementById('commandSearch');
-            const filter = input.value.toLowerCase();
-            const categories = document.querySelectorAll('[data-command-category]');
-            
-            categories.forEach(category => {
-                const commands = category.querySelectorAll('.command-box');
-                let hasVisibleCommand = false;
-                
-                commands.forEach(cmd => {
-                    const text = cmd.textContent.toLowerCase();
-                    if (text.includes(filter)) {
-                        cmd.style.display = 'flex';
-                        hasVisibleCommand = true;
-                    } else {
-                        cmd.style.display = 'none';
-                    }
-                });
-                
-                category.style.display = hasVisibleCommand ? 'block' : 'none';
-            });
-        }
-        // === RUOLO STAFF CORRENTE (DEMO) ===
-// Metti qui: "owner" / "admin" / "helper" / "trial" ecc.
-// Poi collegalo al tuo login reale.
-const CURRENT_ROLE = "admin"; // <-- cambia quando integri backend
-
-const QUESTION_BANK = {
-  trial: [
-    "Presentati (età, esperienza server, disponibilità).",
-    "Perché vuoi entrare nello staff?",
-    "Come gestisci un utente tossico in ticket?",
-    "Cosa fai se non sai la risposta a un problema?",
-    "Esempio: segnalazione senza prove — come rispondi?"
-  ],
-  helper: [
-    "Come gestisci un ticket bug senza promettere rimborsi?",
-    "Priorità ticket: store vs segnalazione — cosa fai per primo e perché?",
-    "Come comunichi in modo professionale anche se l’utente provoca?",
-    "Cosa fai se un player chiede HeadStaff?",
-    "Regola fondamentale sui transcript/log: spiegala."
-  ],
-  mod: [
-    "Quali prove servono per sanzionare? (screenshot/video/log).",
-    "Differenza tra warn / mute / tempban (quando usare cosa).",
-    "Esempio: cheat sospetto — descrivi procedura corretta.",
-    "Limiti del tuo rank: come li rispetti?",
-    "Cosa fai se un altro staff abusa dei comandi?"
-  ],
-  srmod: [
-    "Gestione appello ban: come valuti e cosa controlli?",
-    "Come gestisci un caso ‘dubbio’ con prove parziali?",
-    "Procedure anti-abuse: come garantisci trasparenza?",
-    "Quando escalare a Admin/Owner e perché?",
-    "Esempio: multi-account/dupeip — come procedi?"
-  ],
-  admin: [
-    "Come definisci linee guida staff e fai rispettare procedure?",
-    "Decisioni in casi critici: come documenti e comunichi?",
-    "Gestione reclami gravi: flusso e priorità.",
-    "Politica rimborsi: chi decide e come si applica?",
-    "Come gestire conflitti interni allo staff?"
-  ]
-};
-
-function renderProvino() {
-  const type = document.getElementById("provinoType").value;
-
-  // Sezione domande: solo admin/owner (personalizza come vuoi)
-  const canSeeQuestions = (CURRENT_ROLE === "admin" || CURRENT_ROLE === "owner");
-
-  const lock = document.getElementById("staffQuestionsLock");
-  const box = document.getElementById("staffQuestions");
-
-  if (!canSeeQuestions) {
-    lock.style.display = "block";
-    box.style.display = "none";
-    return;
+    // Attiva bottone selezionato
+    if (evt && evt.currentTarget) evt.currentTarget.classList.add("active");
   }
 
-  lock.style.display = "none";
-  box.style.display = "block";
+  // =========================
+  // NOTIFICA (riutilizzabile)
+  // =========================
+  function showToast(text, type = "success") {
+    const notification = document.createElement("div");
+    notification.textContent = text;
 
-  document.getElementById("qTitle").textContent = type.toUpperCase();
-  const qList = document.getElementById("qList");
-  qList.innerHTML = "";
+    const bg =
+      type === "success"
+        ? "linear-gradient(135deg, var(--success) 0%, #45a049 100%)"
+        : type === "danger"
+        ? "linear-gradient(135deg, var(--danger) 0%, #ff6b6b 100%)"
+        : "linear-gradient(135deg, var(--warning) 0%, #ff8e53 100%)";
 
-  (QUESTION_BANK[type] || []).forEach(q => {
-    const li = document.createElement("li");
-    li.textContent = q;
-    qList.appendChild(li);
-  });
-}
+    notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: ${bg};
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-weight: 700;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+      z-index: 10000;
+      animation: slideInRight 0.3s ease;
+    `;
 
-// chiamala una volta al load
-renderProvino();
+    document.body.appendChild(notification);
 
-// === CHAT DEMO (senza backend) ===
-let currentSession = "";
-
-function createSession() {
-  // genera un ID semplice demo
-  currentSession = "AX-" + Math.floor(1000 + Math.random() * 9000);
-  document.getElementById("sessionId").value = currentSession;
-  logChat("SYSTEM", `Sessione creata: ${currentSession}`);
-}
-
-function joinSession() {
-  const id = document.getElementById("sessionId").value.trim();
-  if (!id) return;
-  currentSession = id;
-  logChat("SYSTEM", `Sei entrato nella sessione: ${currentSession}`);
-}
-
-function sendChat() {
-  const input = document.getElementById("chatMsg");
-  const msg = input.value.trim();
-  if (!msg) return;
-  if (!currentSession) {
-    logChat("SYSTEM", "Prima crea o entra in una sessione.");
-    return;
-  }
-  logChat("ME", msg);
-  input.value = "";
-}
-
-function logChat(who, text) {
-  const log = document.getElementById("chatLog");
-  const div = document.createElement("div");
-  div.className = "chat-msg";
-  div.textContent = `[${who}] ${text}`;
-  log.appendChild(div);
-  log.scrollTop = log.scrollHeight;
-}
-
-// === FULLSCREEN (deterrente) ===
-function startFullscreen() {
-  const el = document.documentElement;
-  if (el.requestFullscreen) el.requestFullscreen();
-  logChat("SYSTEM", "Modalità schermo intero richiesta.");
-}
-
-// === DETERRENTI DEVTOOLS (NON SICURI, SOLO SCORAGGIO) ===
-// Blocca alcune combinazioni comuni (bypassabile)
-document.addEventListener("keydown", (e) => {
-  // F12
-  if (e.key === "F12") e.preventDefault();
-
-  // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+U
-  if (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key.toUpperCase())) e.preventDefault();
-  if (e.ctrlKey && e.key.toUpperCase() === "U") e.preventDefault();
-
-  // F11 (fullscreen toggle) -> NON puoi impedirlo sempre, ma puoi provare
-  if (e.key === "F11") e.preventDefault();
-});
-
-// se esci dal fullscreen, avvisa
-document.addEventListener("fullscreenchange", () => {
-  if (!document.fullscreenElement) {
-    logChat("SYSTEM", "Sei uscito dallo schermo intero.");
-  }
-});
-					// ==========================
-// AUTH (DEMO) - IMPORTANTISSIMO
-// ==========================
-// Qui è DEMO. Nel progetto vero devi prendere ruolo da backend (session/cookie).
-// E SOPRATTUTTO: le domande NON devono essere nel JS pubblico.
-const CURRENT_USER = {
-  role: "admin", // "guest" se non loggato, oppure "trial/helper/mod/srmod/admin/owner"
-  isStaff: true  // metti true solo per staff
-};
-
-// ==========================
-// QUESTION BANK (PLACEHOLDER)
-// quando mi mandi le domande, lo riempio bene.
-// Nel progetto vero: fetch dal server SOLO SE staff.
-// ==========================
-const QUESTION_BANK = {
-  trial: ["(placeholder) domanda 1", "(placeholder) domanda 2"],
-  helper: ["(placeholder) domanda 1", "(placeholder) domanda 2"],
-  mod: ["(placeholder) domanda 1", "(placeholder) domanda 2"],
-  srmod: ["(placeholder) domanda 1", "(placeholder) domanda 2"],
-  admin: ["(placeholder) domanda 1", "(placeholder) domanda 2"],
-  owner: ["(placeholder) domanda 1", "(placeholder) domanda 2"]
-};
-
-// ==========================
-// STATE
-// ==========================
-let currentSession = "";
-let transcript = [];
-let score = 0;
-
-// ==========================
-// UI HELPERS
-// ==========================
-function setLiveStatus(type, text){
-  const el = document.getElementById("liveStatus");
-  el.textContent = text;
-  el.classList.remove("ok","warn","muted");
-  el.classList.add(type);
-}
-
-function provinoRender(){
-  const type = document.getElementById("provinoType").value;
-  const candidate = document.getElementById("candidateName").value.trim() || "—";
-
-  // STAFF ONLY QUESTIONS
-  const qLock = document.getElementById("staffQuestionsLock");
-  const qBox = document.getElementById("staffQuestions");
-  const qVis = document.getElementById("qVisibility");
-
-  if (!CURRENT_USER.isStaff) {
-    qLock.style.display = "block";
-    qBox.style.display = "none";
-    qVis.textContent = "Non staff";
-    qVis.className = "mini-badge-tech muted";
-  } else {
-    qLock.style.display = "none";
-    qBox.style.display = "block";
-    qVis.textContent = "Staff";
-    qVis.className = "mini-badge-tech ok";
+    setTimeout(() => {
+      notification.style.animation = "slideOutRight 0.3s ease";
+      setTimeout(() => notification.remove(), 300);
+    }, 2000);
   }
 
-  // header pills
-  document.getElementById("qTitle").textContent = type.toUpperCase();
-  document.getElementById("qCandidate").textContent = candidate;
-  document.getElementById("qSession").textContent = currentSession || "—";
+  // =========================
+  // COPY COMMAND (con fallback)
+  // =========================
+  function copyCommand(command) {
+    if (!command) return;
 
-  // render questions
-  const qList = document.getElementById("qList");
-  qList.innerHTML = "";
+    // Clipboard API (moderna)
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard
+        .writeText(command)
+        .then(() => showToast("✅ Comando copiato!", "success"))
+        .catch(() => {
+          fallbackCopy(command);
+          showToast("✅ Comando copiato!", "success");
+        });
+      return;
+    }
 
-  if (CURRENT_USER.isStaff) {
-    (QUESTION_BANK[type] || []).forEach(q => {
-      const li = document.createElement("li");
-      li.textContent = q;
-      qList.appendChild(li);
+    // Fallback per HTTP/non secure context
+    fallbackCopy(command);
+    showToast("✅ Comando copiato!", "success");
+  }
+
+  function fallbackCopy(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.top = "-9999px";
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand("copy");
+    } catch (e) {
+      // se fallisce, almeno non crasha
+    }
+    textarea.remove();
+  }
+
+  // =========================
+  // SEARCH STAFF
+  // =========================
+  function searchStaff() {
+    const input = document.getElementById("staffSearch");
+    if (!input) return;
+
+    const filter = input.value.toLowerCase();
+    const cards = document.querySelectorAll("[data-staffer]");
+
+    cards.forEach((card) => {
+      const text = card.textContent.toLowerCase();
+      // usa block perchè è card, se vuoi flex cambia qui
+      card.style.display = text.includes(filter) ? "block" : "none";
     });
   }
-}
 
-provinoRender();
+  // =========================
+  // SEARCH COMMANDS
+  // =========================
+  function searchCommands() {
+    const input = document.getElementById("commandSearch");
+    if (!input) return;
 
-// ==========================
-// SESSION
-// ==========================
-function provCreateSession(){
-  const base = Math.floor(1000 + Math.random() * 9000);
-  currentSession = `AX-PROV-${base}`;
-  document.getElementById("sessionId").value = currentSession;
-  document.getElementById("provSessionBadge").textContent = currentSession;
-  setLiveStatus("ok","Live");
-  logChat("SYSTEM", `Sessione creata: ${currentSession}`);
-  addTranscript("SYSTEM", `Sessione creata: ${currentSession}`);
-  provinoRender();
-}
+    const filter = input.value.toLowerCase();
+    const categories = document.querySelectorAll("[data-command-category]");
 
-function provJoinSession(){
-  const id = document.getElementById("sessionId").value.trim();
-  if(!id) return;
-  currentSession = id;
-  document.getElementById("provSessionBadge").textContent = currentSession;
-  setLiveStatus("ok","Live");
-  logChat("SYSTEM", `Entrato in sessione: ${currentSession}`);
-  addTranscript("SYSTEM", `Entrato in sessione: ${currentSession}`);
-  provinoRender();
-}
+    categories.forEach((category) => {
+      const commands = category.querySelectorAll(".command-box");
+      let hasVisibleCommand = false;
 
-// ==========================
-// CHAT + TRANSCRIPT
-// ==========================
-function logChat(who, text){
-  const log = document.getElementById("chatLog");
-  const div = document.createElement("div");
-  div.className = "chat-msg";
-  div.textContent = `[${who}] ${text}`;
-  log.appendChild(div);
-  log.scrollTop = log.scrollHeight;
-}
+      commands.forEach((cmd) => {
+        const text = cmd.textContent.toLowerCase();
+        if (text.includes(filter)) {
+          cmd.style.display = "flex";
+          hasVisibleCommand = true;
+        } else {
+          cmd.style.display = "none";
+        }
+      });
 
-function addTranscript(who, text){
-  const time = new Date().toLocaleTimeString();
-  transcript.push(`[${time}] [${who}] ${text}`);
-  renderTranscript();
-}
-
-function renderTranscript(){
-  const box = document.getElementById("transcriptBox");
-  box.textContent = transcript.join("\n");
-}
-
-function sendChat(){
-  const msgEl = document.getElementById("chatMsg");
-  const msg = msgEl.value.trim();
-  if(!msg) return;
-
-  if(!currentSession){
-    logChat("SYSTEM","Crea o entra in una sessione prima.");
-    return;
+      category.style.display = hasVisibleCommand ? "block" : "none";
+    });
   }
 
-  logChat("ME", msg);
-  addTranscript("ME", msg);
-  msgEl.value = "";
-}
-
-function copyTranscript(){
-  navigator.clipboard.writeText(transcript.join("\n"));
-  logChat("SYSTEM","Transcript copiato.");
-}
-
-function clearTranscript(){
-  transcript = [];
-  renderTranscript();
-  logChat("SYSTEM","Transcript svuotato.");
-}
-
-// ==========================
-// CHECKLIST + NOTES (LOCAL)
-// ==========================
-function checkSave(){
-  const checks = Array.from(document.querySelectorAll("#live_checklist input[type='checkbox']")).map(c=>c.checked);
-  localStorage.setItem("prov_checklist", JSON.stringify(checks));
-}
-
-(function checkLoad(){
-  const raw = localStorage.getItem("prov_checklist");
-  if(!raw) return;
-  try{
-    const checks = JSON.parse(raw);
-    const inputs = document.querySelectorAll("#live_checklist input[type='checkbox']");
-    inputs.forEach((inp,i)=> inp.checked = !!checks[i]);
-  }catch(e){}
-})();
-
-function notesSave(){
-  localStorage.setItem("prov_notes", document.getElementById("notesBox").value);
-}
-
-(function notesLoad(){
-  const raw = localStorage.getItem("prov_notes");
-  if(raw) document.getElementById("notesBox").value = raw;
-})();
-
-// ==========================
-// SCORE
-// ==========================
-function scoreAdd(delta){
-  score += delta;
-  document.getElementById("scoreValue").textContent = String(score);
-}
-
-// ==========================
-// TIMER
-// ==========================
-let timerSec = 0;
-let timerInt = null;
-
-function formatTime(s){
-  const m = Math.floor(s/60);
-  const r = s % 60;
-  const mm = String(m).padStart(2,"0");
-  const rr = String(r).padStart(2,"0");
-  return `${mm}:${rr}`;
-}
-
-function timerStart(){
-  if(timerInt) return;
-  timerInt = setInterval(()=>{
-    timerSec++;
-    document.getElementById("timerValue").textContent = formatTime(timerSec);
-  },1000);
-  setLiveStatus("ok","Live");
-}
-
-function timerPause(){
-  if(!timerInt) return;
-  clearInterval(timerInt);
-  timerInt = null;
-  setLiveStatus("warn","Pausa");
-}
-
-function timerReset(){
-  if(timerInt){
-    clearInterval(timerInt);
-    timerInt = null;
-  }
-  timerSec = 0;
-  document.getElementById("timerValue").textContent = "00:00";
-  setLiveStatus("warn","Standby");
-}
-
-// ==========================
-// QUESTIONS ACTIONS
-// ==========================
-function copyQuestions(){
-  if(!CURRENT_USER.isStaff) return;
-  const type = document.getElementById("provinoType").value;
-  const txt = (QUESTION_BANK[type] || []).map((q,i)=>`${i+1}. ${q}`).join("\n");
-  navigator.clipboard.writeText(txt);
-  logChat("SYSTEM","Domande copiate.");
-}
-
-function pushQuestionsToTranscript(){
-  if(!CURRENT_USER.isStaff) return;
-  const type = document.getElementById("provinoType").value;
-  addTranscript("SYSTEM", `--- DOMANDE (${type.toUpperCase()}) ---`);
-  (QUESTION_BANK[type] || []).forEach((q,i)=> addTranscript("Q", `${i+1}. ${q}`));
-}
-
-// ==========================
-// EXPORT REPORT (LOCAL FILE)
-// ==========================
-function provExport(){
-  const type = document.getElementById("provinoType").value;
-  const candidate = document.getElementById("candidateName").value.trim() || "—";
-  const notes = document.getElementById("notesBox").value || "";
-  const time = document.getElementById("timerValue").textContent;
-
-  const report = {
-    session: currentSession || null,
-    candidate,
-    type,
-    score,
-    duration: time,
-    transcript,
-    notes,
-    date: new Date().toISOString()
-  };
-
-  const blob = new Blob([JSON.stringify(report, null, 2)], {type:"application/json"});
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = `provino_${candidate}_${type}_${currentSession || "no-session"}.json`.replaceAll(" ","_");
-  a.click();
-  URL.revokeObjectURL(a.href);
-
-  logChat("SYSTEM","Report esportato (JSON).");
-}
-
-// ==========================
-// CLEAR LOCAL
-// ==========================
-function provClearLocal(){
-  localStorage.removeItem("prov_notes");
-  localStorage.removeItem("prov_checklist");
-  document.getElementById("notesBox").value = "";
-  const inputs = document.querySelectorAll("#live_checklist input[type='checkbox']");
-  inputs.forEach(i=> i.checked=false);
-  logChat("SYSTEM","Pulito (note/checklist).");
-}
-
-// ==========================
-// LIVE TABS
-// ==========================
-function provOpenLiveTab(evt, tab){
-  const tabs = document.getElementsByClassName("live-tab");
-  for(let i=0;i<tabs.length;i++) tabs[i].classList.remove("active");
-
-  const contents = document.getElementsByClassName("live-tab-content");
-  for(let i=0;i<contents.length;i++) contents[i].classList.remove("active");
-
-  evt.currentTarget.classList.add("active");
-  document.getElementById("live_"+tab).classList.add("active");
-}
-
-// ==========================
-// FULLSCREEN (deterrente)
-// ==========================
-function startFullscreen(){
-  const el = document.documentElement;
-  if (el.requestFullscreen) el.requestFullscreen();
-  logChat("SYSTEM","Fullscreen richiesto.");
-  addTranscript("SYSTEM","Fullscreen richiesto.");
-}
-
-// ==========================
-// DETERRING KEYS (bypassabile)
-// ==========================
-document.addEventListener("keydown", (e) => {
-  if (e.key === "F12") e.preventDefault();
-  if (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) e.preventDefault();
-  if (e.ctrlKey && e.key.toUpperCase() === "U") e.preventDefault();
-  if (e.key === "F11") e.preventDefault();
-});
-
-document.addEventListener("fullscreenchange", () => {
-  if (!document.fullscreenElement) logChat("SYSTEM","Uscito dal fullscreen.");
-});
-        // Aggiungi stili per le animazioni
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideInRight {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            @keyframes slideOutRight {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-            }
-        `;
-	
-        document.head.appendChild(style);
-    </script>
+  // =========================
+  // Animazioni Toast (una volta sola)
+  // =========================
+  (function injectToastAnimations() {
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes slideInRight {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      @keyframes slideOutRight {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  })();
+</script>
 </body>
 </html>
