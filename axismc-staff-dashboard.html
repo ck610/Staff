@@ -860,6 +860,73 @@
             font-size: 0.85em;
             border-left: 3px solid var(--primary);
         }
+		.staff-section{
+  margin-top: 18px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.staff-section-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom: 14px;
+}
+
+.staff-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:14px;
+}
+
+.staff-card{
+  background: var(--dark-lighter);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  transition: all .25s ease;
+}
+
+.staff-card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(108, 99, 255, 0.35);
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+.staff-avatar{
+  width:46px;
+  height:46px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 800;
+  color:#fff;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.staff-meta{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.staff-name{
+  font-weight: 800;
+  font-size: 1.05em;
+}
+
+.staff-empty{
+  color: var(--text-muted);
+  font-weight: 600;
+  padding: 10px 2px;
+}
     </style>
 </head>
 <body>
@@ -1756,97 +1823,148 @@
             </div>
         </div>
 
-       <!-- TAB STAFF -->
+   <!-- TAB STAFF -->
 <div id="staff" class="tab-content">
   <div class="section-card">
     <h2 class="section-title"><span class="emoji">👥</span> Staff AxisMC</h2>
     <p style="color: var(--text-muted); margin-bottom: 25px;">
-      Elenco completo dello staff. Stato: <span class="highlight">Loggato</span> = attivo ora, <span class="highlight">Offline</span> = non disponibile.
+      Elenco staff diviso per rank.
     </p>
 
-    <!-- (Opzionale) ricerca -->
-    <input type="text" class="search-box" placeholder="🔍 Cerca staffer (nome o rank)..." id="staffSearch" onkeyup="searchStaff()">
+    <!-- OWNER -->
+    <div class="staff-section">
+      <div class="staff-section-header">
+        <span class="rank-badge rank-manager">Owner</span>
+      </div>
 
-    <div class="staff-grid" id="staffGrid">
-      <!-- ESEMPIO STAFF CARD -->
-      <div class="staff-card online" data-staffer>
-        <div class="staff-top">
-          <div class="staff-avatar">CA</div>
+      <div class="staff-grid">
+        <div class="staff-card">
+          <div class="staff-avatar">CK</div>
           <div class="staff-meta">
             <div class="staff-name">ck_anto</div>
-            <div class="staff-rank"><span class="rank-badge rank-manager">Manager</span></div>
+            <div class="staff-rank"><span class="rank-badge rank-manager">Owner</span></div>
           </div>
         </div>
-        <div class="staff-status">
-          <span class="status-dot"></span>
-          <span class="status-text">Loggato</span>
-          <span class="status-info">• In servizio</span>
-        </div>
-        <div class="badge-container">
-          <span class="mini-badge badge-approved">Attivo</span>
-        </div>
-      </div>
 
-      <div class="staff-card offline" data-staffer>
-        <div class="staff-top">
+        <div class="staff-card">
           <div class="staff-avatar">BL</div>
           <div class="staff-meta">
-            <div class="staff-name">blacked104</div>
-            <div class="staff-rank"><span class="rank-badge rank-sradmin">SrAdmin</span></div>
+            <div class="staff-name">blacked</div>
+            <div class="staff-rank"><span class="rank-badge rank-manager">Owner</span></div>
           </div>
         </div>
-        <div class="staff-status">
-          <span class="status-dot"></span>
-          <span class="status-text">Offline</span>
-          <span class="status-info">• Non disponibile</span>
+
+        <div class="staff-card">
+          <div class="staff-avatar">BE</div>
+          <div class="staff-meta">
+            <div class="staff-name">Beffax</div>
+            <div class="staff-rank"><span class="rank-badge rank-manager">Owner</span></div>
+          </div>
         </div>
-        <div class="badge-container">
-          <span class="mini-badge badge-pending">Assente</span>
+
+        <div class="staff-card">
+          <div class="staff-avatar">NA</div>
+          <div class="staff-meta">
+            <div class="staff-name">Nash</div>
+            <div class="staff-rank"><span class="rank-badge rank-manager">Owner</span></div>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="staff-card online" data-staffer>
-        <div class="staff-top">
+    <!-- SR.ADMIN -->
+    <div class="staff-section">
+      <div class="staff-section-header">
+        <span class="rank-badge rank-sradmin">Sr.Admin</span>
+      </div>
+      <p class="staff-empty">Nessuno</p>
+    </div>
+
+    <!-- ADMIN -->
+    <div class="staff-section">
+      <div class="staff-section-header">
+        <span class="rank-badge rank-admin">Admin</span>
+      </div>
+
+      <div class="staff-grid">
+        <div class="staff-card">
           <div class="staff-avatar">DZ</div>
           <div class="staff-meta">
             <div class="staff-name">Daze</div>
             <div class="staff-rank"><span class="rank-badge rank-admin">Admin</span></div>
           </div>
         </div>
-        <div class="staff-status">
-          <span class="status-dot"></span>
-          <span class="status-text">Loggato</span>
-          <span class="status-info">• Disponibile</span>
-        </div>
+      </div>
+    </div>
+
+    <!-- SR.MOD -->
+    <div class="staff-section">
+      <div class="staff-section-header">
+        <span class="rank-badge rank-srmod">SrMod</span>
+      </div>
+      <p class="staff-empty">Nessuno</p>
+    </div>
+
+    <!-- MOD -->
+    <div class="staff-section">
+      <div class="staff-section-header">
+        <span class="rank-badge rank-mod">Mod</span>
+      </div>
+      <p class="staff-empty">Nessuno</p>
+    </div>
+
+    <!-- HELPER -->
+    <div class="staff-section">
+      <div class="staff-section-header">
+        <span class="rank-badge rank-helper">Helper</span>
       </div>
 
-      <div class="staff-card offline" data-staffer>
-        <div class="staff-top">
-          <div class="staff-avatar">EX</div>
+      <div class="staff-grid">
+        <div class="staff-card">
+          <div class="staff-avatar">PL</div>
           <div class="staff-meta">
-            <div class="staff-name">EsempioMod</div>
-            <div class="staff-rank"><span class="rank-badge rank-mod">Mod</span></div>
+            <div class="staff-name">PlayBO1Carty_</div>
+            <div class="staff-rank"><span class="rank-badge rank-helper">Helper</span></div>
           </div>
         </div>
-        <div class="staff-status">
-          <span class="status-dot"></span>
-          <span class="status-text">Offline</span>
-          <span class="status-info">• Non disponibile</span>
+
+        <div class="staff-card">
+          <div class="staff-avatar">NF</div>
+          <div class="staff-meta">
+            <div class="staff-name">NanoDiFoggia</div>
+            <div class="staff-rank"><span class="rank-badge rank-helper">Helper</span></div>
+          </div>
+        </div>
+
+        <div class="staff-card">
+          <div class="staff-avatar">SI</div>
+          <div class="staff-meta">
+            <div class="staff-name">Sigma</div>
+            <div class="staff-rank"><span class="rank-badge rank-helper">Helper</span></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="section-card" style="background: var(--dark-lighter); margin-top: 20px;">
-      <h3 class="section-title"><span class="emoji">📌</span> Note</h3>
-      <ul class="rules-list">
-        <li><strong>Loggato</strong> = lo staffer è attivo e può prendere ticket.</li>
-        <li><strong>Offline</strong> = lo staffer non è disponibile al momento.</li>
-        <li><strong>In servizio</strong> (opzionale) = turno attivo.</li>
-      </ul>
-    </div>
-  </div>
-</div
+    <!-- TRIAL -->
+    <div class="staff-section">
+      <div class="staff-section-header">
+        <span class="rank-badge rank-trial">Trial</span>
+      </div>
 
+      <div class="staff-grid">
+        <div class="staff-card">
+          <div class="staff-avatar">TE</div>
+          <div class="staff-meta">
+            <div class="staff-name">Ten87_</div>
+            <div class="staff-rank"><span class="rank-badge rank-trial">Trial</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
         <!-- TAB REGOLAMENTO -->
         <div id="regolamento" class="tab-content">
             <div class="section-card">
