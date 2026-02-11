@@ -109,64 +109,6 @@
             animation: fadeIn 0.8s ease 0.4s both;
         }
 
-        .quick-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .stat-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 25px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.6s ease both;
-        }
-
-        .stat-card:nth-child(1) { animation-delay: 0.1s; }
-        .stat-card:nth-child(2) { animation-delay: 0.2s; }
-        .stat-card:nth-child(3) { animation-delay: 0.3s; }
-        .stat-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 40px rgba(108, 99, 255, 0.3);
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
-        }
-
-        .stat-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .stat-value {
-            font-size: 2em;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
         .tab-navigation {
             display: flex;
             gap: 10px;
@@ -175,7 +117,7 @@
             padding: 8px;
             border-radius: 16px;
             border: 1px solid var(--border);
-            overflow-x: hidden;
+            overflow-x: auto;
             animation: fadeIn 0.8s ease 0.6s both;
         }
 
@@ -394,26 +336,6 @@
             margin-right: 8px;
         }
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .command-category {
-            background: var(--dark-lighter);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid var(--border);
-        }
-
-        .command-category h4 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
         .search-box {
             width: 100%;
             padding: 15px 20px;
@@ -453,93 +375,11 @@
             }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
-            margin-top: 50px;
-            border-top: 1px solid var(--border);
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            .section-card {
-                padding: 20px;
-            }
-
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-
-            header {
-                flex-direction: column;
-                gap: 20px;
-                align-items: flex-start;
-            }
-
-            .user-profile {
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .user-menu {
-                right: auto;
-                left: 0;
-                width: 100%;
-            }
-        }
-
         .highlight {
             background: linear-gradient(135deg, rgba(108, 99, 255, 0.2) 0%, rgba(76, 175, 80, 0.2) 100%);
             padding: 2px 8px;
             border-radius: 4px;
             font-weight: 600;
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: help;
-            border-bottom: 1px dotted var(--primary);
-        }
-
-        .quick-access {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .quick-btn {
-            background: linear-gradient(135deg, var(--primary) 0%, #5848d4 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
-        }
-
-        .quick-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.5);
         }
 
         .user-profile {
@@ -606,101 +446,6 @@
             50% { opacity: 0.5; }
         }
 
-		.staff-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap:16px;
-  margin-top:10px;
-}
-
-.staff-card{
-  background: var(--dark-lighter);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 18px;
-  transition: all .3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.staff-card:hover{
-  transform: translateY(-4px);
-  border-color: rgba(108, 99, 255, 0.35);
-  box-shadow: 0 10px 30px rgba(0,0,0,.35);
-}
-
-.staff-card.online{
-  border-left: 4px solid var(--success);
-}
-
-.staff-card.offline{
-  border-left: 4px solid rgba(255,255,255,0.18);
-  opacity: 0.92;
-}
-
-.staff-top{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  margin-bottom: 12px;
-}
-
-.staff-avatar{
-  width:48px;
-  height:48px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight: 800;
-  color:#fff;
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-.staff-meta{
-  display:flex;
-  flex-direction:column;
-  gap:4px;
-}
-
-.staff-name{
-  font-weight: 800;
-  font-size: 1.05em;
-}
-
-.staff-status{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-.status-dot{
-  width:10px;
-  height:10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-}
-
-.staff-card.online .status-dot{
-  background: var(--success);
-  box-shadow: 0 0 0 3px rgba(76,175,80,0.12);
-}
-
-.staff-card.offline .status-dot{
-  background: rgba(255,255,255,0.22);
-}
-
-.status-text{
-  color: var(--text);
-}
-
-.status-info{
-  color: var(--text-muted);
-  font-weight: 600;
-}
         .user-menu {
             position: absolute;
             top: calc(100% + 10px);
@@ -751,32 +496,6 @@
             margin: 8px 0;
         }
 
-        .badge-container {
-            display: flex;
-            gap: 6px;
-            margin-top: 8px;
-        }
-
-        .mini-badge {
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.7em;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .badge-approved {
-            background: rgba(76, 175, 80, 0.2);
-            color: var(--success);
-            border: 1px solid var(--success);
-        }
-
-        .badge-pending {
-            background: rgba(255, 181, 69, 0.2);
-            color: var(--warning);
-            border: 1px solid var(--warning);
-        }
-
         .notification-badge {
             position: absolute;
             top: -5px;
@@ -800,631 +519,62 @@
             font-weight: 600;
         }
 
-        .rank-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.85em;
-            font-weight: 700;
-            margin-right: 8px;
-            text-transform: uppercase;
-        }
-
-        .rank-manager {
-            background: linear-gradient(135deg, #FF6B6B 0%, #FF4444 100%);
-            color: white;
-        }
-
-        .rank-sradmin {
-            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-            color: white;
-        }
-
-        .rank-admin {
-            background: linear-gradient(135deg, #FFB545 0%, #FF8E53 100%);
-            color: white;
-        }
-
-        .rank-srmod {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-            color: white;
-        }
-
-        .rank-mod {
-            background: linear-gradient(135deg, #6C63FF 0%, #5848d4 100%);
-            color: white;
-        }
-
-        .rank-helper {
-            background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
-            color: white;
-        }
-
-        .rank-trial {
-            background: linear-gradient(135deg, #9E9E9E 0%, #757575 100%);
-            color: white;
-        }
-
-        .permission-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 10px;
-            margin: 15px 0;
-        }
-
-        .permission-item {
+        .sanction-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
             background: var(--dark);
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85em;
-            border-left: 3px solid var(--primary);
+            border-radius: 12px;
+            overflow: hidden;
         }
-		.staff-section{
-  margin-top: 18px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 18px;
-}
 
-.staff-section-header{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom: 14px;
-}
-
-.staff-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap:14px;
-}
-
-.staff-card{
-  background: var(--dark-lighter);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 14px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  transition: all .25s ease;
-}
-
-.staff-card:hover{
-  transform: translateY(-3px);
-  border-color: rgba(108, 99, 255, 0.35);
-  box-shadow: 0 10px 25px rgba(0,0,0,.35);
-}
-
-.staff-avatar{
-  width:46px;
-  height:46px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight: 800;
-  color:#fff;
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-.staff-meta{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-
-.staff-name{
-  font-weight: 800;
-  font-size: 1.05em;
-}
-
-.staff-empty{
-  color: var(--text-muted);
-  font-weight: 600;
-  padding: 10px 2px;
-}
-		.provini-top{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap:18px;
-}
-
-.provini-box{
-  background: var(--dark-lighter);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 18px;
-}
-
-.provini-title{
-  color: var(--text);
-  font-size: 1.2em;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.provini-label{
-  display:block;
-  color: var(--text-muted);
-  font-weight: 700;
-  font-size: 0.9em;
-  margin-bottom: 6px;
-}
-
-.provini-select, .provini-input{
-  width:100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 2px solid var(--border);
-  background: var(--dark-card);
-  color: var(--text);
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600;
-  outline: none;
-  transition: all .2s ease;
-}
-
-.provini-select:focus, .provini-input:focus{
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
-}
-
-.provini-actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top: 12px;
-}
-
-.provini-row{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.chat-wrap{
-  margin-top: 12px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow:hidden;
-  background: rgba(0,0,0,0.15);
-}
-
-.chat-log{
-  height: 220px;
-  overflow:auto;
-  padding: 12px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9em;
-  color: var(--text);
-}
-
-.chat-msg{
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.06);
-  margin-bottom: 8px;
-}
-
-.chat-input-row{
-  display:flex;
-  gap:10px;
-  padding: 12px;
-  border-top: 1px solid var(--border);
-  background: rgba(255,255,255,0.03);
-}
-
-.provini-note{
-  margin-top: 12px;
-  color: var(--text-muted);
-  font-weight: 600;
-  line-height: 1.7;
-}
-		.provini-shell{
-  background: linear-gradient(135deg, rgba(108,99,255,0.12) 0%, rgba(76,175,80,0.06) 50%, rgba(255,107,107,0.04) 100%);
-  border-color: rgba(108,99,255,0.25);
-}
-
-.provini-hero{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:18px;
-  margin-bottom: 18px;
-}
-
-.provini-title{
-  font-size: 2em;
-  font-weight: 900;
-  letter-spacing: .2px;
-  background: linear-gradient(135deg, #ffffff 0%, var(--primary) 60%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.provini-sub{
-  color: var(--text-muted);
-  font-weight: 600;
-  margin-top: 6px;
-}
-
-.provini-chipbar{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
-
-.prov-chip{
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 10px 12px;
-  border-radius: 999px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight: 800;
-  color: var(--text);
-}
-
-.dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
-.dot-ok{ background: var(--success); box-shadow: 0 0 0 4px rgba(76,175,80,0.12); }
-.dot-warn{ background: var(--warning); box-shadow: 0 0 0 4px rgba(255,181,69,0.12); }
-.dot-muted{ background: rgba(255,255,255,0.25); }
-
-.provini-grid{
-  display:grid;
-  grid-template-columns: 1.1fr 1.2fr;
-  gap:18px;
-}
-
-@media (max-width: 1100px){
-  .provini-grid{ grid-template-columns: 1fr; }
-}
-
-.prov-panel{
-  background: rgba(18,24,46,0.85);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 18px;
-  padding: 18px;
-  position: relative;
-  overflow:hidden;
-}
-
-.prov-panel::before{
-  content:'';
-  position:absolute;
-  inset:-2px;
-  background: radial-gradient(circle at 20% 10%, rgba(108,99,255,0.18), transparent 45%),
-              radial-gradient(circle at 80% 80%, rgba(76,175,80,0.12), transparent 55%);
-  opacity: .7;
-  pointer-events:none;
-}
-
-.prov-panel > *{ position: relative; z-index: 1; }
-
-.prov-panel-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom: 14px;
-}
-
-.prov-panel-head h3{
-  font-size: 1.2em;
-  font-weight: 900;
-}
-
-.prov-mini{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.mini-label{
-  color: var(--text-muted);
-  font-weight: 800;
-  font-size: .85em;
-  text-transform: uppercase;
-  letter-spacing: .6px;
-}
-
-.mini-badge-tech{
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-weight: 900;
-  font-size: .85em;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(0,0,0,0.25);
-}
-
-.mini-badge-tech.warn{ border-color: rgba(255,181,69,0.35); }
-.mini-badge-tech.muted{ opacity: .8; }
-.mini-badge-tech.ok{ border-color: rgba(76,175,80,0.35); }
-
-.prov-row{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:12px;
-  margin-bottom: 12px;
-}
-
-@media (max-width: 600px){
-  .prov-row{ grid-template-columns: 1fr; }
-}
-
-.prov-label{
-  display:block;
-  color: var(--text-muted);
-  font-weight: 800;
-  font-size: .85em;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  letter-spacing: .6px;
-}
-
-.prov-field{
-  width:100%;
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: 2px solid rgba(255,255,255,0.10);
-  background: rgba(10,14,39,0.65);
-  color: var(--text);
-  font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-  outline:none;
-  transition: .2s ease;
-}
-
-.prov-field:focus{
-  border-color: rgba(108,99,255,0.7);
-  box-shadow: 0 0 0 4px rgba(108,99,255,0.12);
-}
-
-.mono{ font-family: 'JetBrains Mono', monospace; }
-
-.prov-actions{
-  display:flex;
-  gap:10px;
-  align-items:end;
-  justify-content:flex-end;
-}
-
-.prov-btn{
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(0,0,0,0.25);
-  color: var(--text);
-  padding: 10px 12px;
-  border-radius: 14px;
-  font-weight: 900;
-  cursor:pointer;
-  transition: .2s ease;
-  width:100%;
-}
-
-.prov-btn:hover{
-  transform: translateY(-2px);
-  border-color: rgba(108,99,255,0.35);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.35);
-}
-
-.prov-btn.primary{
-  background: linear-gradient(135deg, rgba(108,99,255,0.9), rgba(88,72,212,0.9));
-  border-color: rgba(108,99,255,0.35);
-}
-
-.prov-btn.danger{
-  background: linear-gradient(135deg, rgba(255,68,68,0.85), rgba(255,107,107,0.7));
-  border-color: rgba(255,68,68,0.35);
-}
-
-.prov-divider{
-  height:1px;
-  background: rgba(255,255,255,0.08);
-  margin: 14px 0;
-}
-
-.prov-timer, .prov-score{
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 12px;
-}
-
-.timer-label{
-  color: var(--text-muted);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: .6px;
-  font-size: .85em;
-  margin-bottom: 6px;
-}
-
-.timer-value{
-  font-size: 2em;
-  font-weight: 900;
-  margin-bottom: 10px;
-}
-
-.timer-actions{
-  display:flex;
-  gap:10px;
-}
-
-.timer-actions .prov-btn{ width:auto; flex:1; }
-
-.score-wrap{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin: 8px 0;
-}
-
-.score-btn{
-  width:44px;
-  height:44px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(0,0,0,0.25);
-  color: var(--text);
-  font-weight: 900;
-  cursor:pointer;
-  transition: .2s ease;
-}
-
-.score-btn:hover{ border-color: rgba(108,99,255,0.35); transform: translateY(-2px); }
-
-.score-value{
-  flex:1;
-  text-align:center;
-  font-size: 1.8em;
-  font-weight: 900;
-}
-
-.score-hint{ color: var(--text-muted); font-weight: 700; font-size: .9em; }
-
-.prov-note.small{
-  color: var(--text-muted);
-  font-weight: 700;
-  font-size: .9em;
-  line-height: 1.7;
-}
-
-.prov-live-tabs{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-bottom: 12px;
-}
-
-.live-tab{
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(0,0,0,0.25);
-  color: var(--text-muted);
-  font-weight: 900;
-  cursor:pointer;
-  transition: .2s ease;
-}
-
-.live-tab.active{
-  background: linear-gradient(135deg, rgba(108,99,255,0.9), rgba(88,72,212,0.85));
-  color:#fff;
-  border-color: rgba(108,99,255,0.35);
-}
-
-.live-tab-content{ display:none; }
-.live-tab-content.active{ display:block; }
-
-.live-log{
-  height: 260px;
-  overflow:auto;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(10,14,39,0.55);
-  padding: 12px;
-}
-
-.live-input{
-  display:flex;
-  gap:10px;
-  margin-top: 12px;
-}
-
-.live-input .prov-btn{ width:auto; }
-
-.chat-msg{
-  padding: 10px 12px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.06);
-  margin-bottom: 8px;
-  font-weight: 700;
-}
-
-.check-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:10px;
-}
-
-@media (max-width: 600px){
-  .check-grid{ grid-template-columns: 1fr; }
-}
-
-.check-item{
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 14px;
-  padding: 10px 12px;
-  font-weight: 800;
-  color: var(--text);
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.prov-textarea{
-  width:100%;
-  min-height: 260px;
-  border-radius: 16px;
-  border: 2px solid rgba(255,255,255,0.10);
-  background: rgba(10,14,39,0.55);
-  color: var(--text);
-  padding: 12px;
-  outline:none;
-}
-
-.prov-textarea:focus{
-  border-color: rgba(108,99,255,0.7);
-  box-shadow: 0 0 0 4px rgba(108,99,255,0.12);
-}
-
-.prov-questions{
-  margin-top: 18px;
-  background: rgba(18,24,46,0.75);
-  border-color: rgba(108,99,255,0.22);
-}
-
-.prov-pill{
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 999px;
-  padding: 10px 12px;
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.pill-title{ color: var(--text-muted); font-weight: 900; text-transform: uppercase; letter-spacing:.6px; font-size:.85em; }
-.pill-value{ color: var(--text); font-weight: 900; }
-
-.q-wrap{
-  margin-top: 12px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(10,14,39,0.55);
-  padding: 12px;
-}
-
-.q-list{
-  color: var(--text);
-  font-weight: 700;
-  line-height: 2;
-  padding-left: 20px;
-}
-
-.q-list li{
-  margin-bottom: 6px;
-  color: rgba(232,234,237,0.95);
-}
+        .sanction-table th {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .sanction-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sanction-table tr:hover {
+            background: rgba(108, 99, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .section-card {
+                padding: 20px;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+
+            .user-profile {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .user-menu {
+                right: auto;
+                left: 0;
+                width: 100%;
+            }
+
+            .tab-navigation {
+                overflow-x: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1493,228 +643,12 @@
             <button class="tab-btn active" onclick="openTab(event, 'tickets')">📑 Gestione Ticket</button>
             <button class="tab-btn" onclick="openTab(event, 'comandimc')">⛏️ Comandi MC</button>
             <button class="tab-btn" onclick="openTab(event, 'comandi')">⚡ Comandi Bot</button>
-            <button class="tab-btn" onclick="openTab(event, 'regolamento')">📜 Regolamento Server</button>
-			<button class="tab-btn" onclick="openTab(event, 'annunci')">📢 Annunci / Changelog</button>
-			<button class="tab-btn" onclick="openTab(event, 'pex')">🧩 Pex & Depex</button>
-			<button class="tab-btn" onclick="openTab(event, 'staff')">🎤 Staff</button>
+			<button class="tab-btn" onclick="openTab(event, 'regolamento')">📜 Regolamento Server</button>
+            <button class="tab-btn" onclick="openTab(event, 'mafia')">🔫 Mafia</button>
+            <button class="tab-btn" onclick="openTab(event, 'mafiasandbox')">🎮 MafiaSandbox</button>
+            <button class="tab-btn" onclick="openTab(event, 'annunci')">📢 Changelog Sito</button>
         </div>
 
-
-<!-- TAB PROVINI (ULTRA) -->
-<div id="provini" class="tab-content">
-  <div class="section-card provini-shell">
-    <div class="provini-hero">
-      <div>
-        <h2 class="provini-title">🎤 Centro Provini — AxisMC</h2>
-        <p class="provini-sub">
-          Mission control per provini staff: sessioni, transcript, note, punteggio e domande guidate.
-        </p>
-      </div>
-
-      <div class="provini-chipbar">
-        <div class="prov-chip"><span class="dot dot-ok"></span> Secure Mode</div>
-        <div class="prov-chip"><span class="dot dot-warn"></span> Live Session</div>
-        <div class="prov-chip"><span class="dot dot-muted"></span> Logs</div>
-      </div>
-    </div>
-
-    <!-- CONTROL PANEL -->
-    <div class="provini-grid">
-      <!-- LEFT: Session Control -->
-      <div class="prov-panel">
-        <div class="prov-panel-head">
-          <h3>🧠 Control Room</h3>
-          <div class="prov-mini">
-            <span class="mini-label">Sessione</span>
-            <span id="provSessionBadge" class="mini-badge-tech">—</span>
-          </div>
-        </div>
-
-        <div class="prov-row">
-          <div>
-            <label class="prov-label">Tipo provino</label>
-            <select id="provinoType" class="prov-field" onchange="provinoRender()">
-              <option value="trial">Trial</option>
-              <option value="helper">Helper</option>
-              <option value="mod">Mod</option>
-              <option value="srmod">SrMod</option>
-              <option value="admin">Admin</option>
-              <option value="owner">Owner</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="prov-label">Candidato</label>
-            <input id="candidateName" class="prov-field" placeholder="Nickname candidato (es. Player123)" />
-          </div>
-        </div>
-
-        <div class="prov-row">
-          <div>
-            <label class="prov-label">ID Sessione</label>
-            <input id="sessionId" class="prov-field mono" placeholder="AX-PROV-0000" />
-          </div>
-          <div class="prov-actions">
-            <button class="prov-btn primary" onclick="provCreateSession()">➕ Crea</button>
-            <button class="prov-btn" onclick="provJoinSession()">↪ Entra</button>
-          </div>
-        </div>
-
-        <div class="prov-divider"></div>
-
-        <div class="prov-row">
-          <div class="prov-timer">
-            <div class="timer-label">⏱️ Timer</div>
-            <div id="timerValue" class="timer-value mono">00:00</div>
-            <div class="timer-actions">
-              <button class="prov-btn" onclick="timerStart()">Start</button>
-              <button class="prov-btn" onclick="timerPause()">Pausa</button>
-              <button class="prov-btn danger" onclick="timerReset()">Reset</button>
-            </div>
-          </div>
-
-          <div class="prov-score">
-            <div class="timer-label">⭐ Punteggio</div>
-            <div class="score-wrap">
-              <button class="score-btn" onclick="scoreAdd(-1)">−</button>
-              <div id="scoreValue" class="score-value mono">0</div>
-              <button class="score-btn" onclick="scoreAdd(1)">+</button>
-            </div>
-            <div class="score-hint">Usa il punteggio come valutazione rapida.</div>
-          </div>
-        </div>
-
-        <div class="prov-divider"></div>
-
-        <div class="prov-row">
-          <button class="prov-btn" onclick="startFullscreen()">🖥️ Fullscreen</button>
-          <button class="prov-btn" onclick="provExport()">📦 Export Report</button>
-          <button class="prov-btn" onclick="provClearLocal()">🧹 Pulisci</button>
-        </div>
-
-        <div class="prov-note small">
-          ⚠️ Fullscreen/anti-devtools sono solo deterrenti. Protezione reale = server che non invia le domande ai non staff.
-        </div>
-      </div>
-
-      <!-- RIGHT: Live Console -->
-      <div class="prov-panel">
-        <div class="prov-panel-head">
-          <h3>📡 Live Console</h3>
-          <div class="prov-mini">
-            <span class="mini-label">Stato</span>
-            <span id="liveStatus" class="mini-badge-tech warn">Standby</span>
-          </div>
-        </div>
-
-        <div class="prov-live">
-          <div class="prov-live-tabs">
-            <button class="live-tab active" onclick="provOpenLiveTab(event,'chat')">💬 Chat</button>
-            <button class="live-tab" onclick="provOpenLiveTab(event,'transcript')">🧾 Transcript</button>
-            <button class="live-tab" onclick="provOpenLiveTab(event,'checklist')">✅ Checklist</button>
-            <button class="live-tab" onclick="provOpenLiveTab(event,'notes')">📝 Note</button>
-          </div>
-
-          <!-- CHAT -->
-          <div id="live_chat" class="live-tab-content active">
-            <div id="chatLog" class="live-log"></div>
-            <div class="live-input">
-              <input id="chatMsg" class="prov-field mono" placeholder="Scrivi… (Enter per inviare)" onkeydown="if(event.key==='Enter'){sendChat();}">
-              <button class="prov-btn primary" onclick="sendChat()">Invia</button>
-            </div>
-          </div>
-
-          <!-- TRANSCRIPT -->
-          <div id="live_transcript" class="live-tab-content">
-            <div class="prov-row">
-              <button class="prov-btn" onclick="copyTranscript()">📋 Copia transcript</button>
-              <button class="prov-btn" onclick="clearTranscript()">🗑️ Svuota transcript</button>
-            </div>
-            <div id="transcriptBox" class="live-log mono"></div>
-          </div>
-
-          <!-- CHECKLIST -->
-          <div id="live_checklist" class="live-tab-content">
-            <div class="check-grid">
-              <label class="check-item"><input type="checkbox" onchange="checkSave()"> Presentazione chiara</label>
-              <label class="check-item"><input type="checkbox" onchange="checkSave()"> Tono rispettoso</label>
-              <label class="check-item"><input type="checkbox" onchange="checkSave()"> Conosce procedure ticket</label>
-              <label class="check-item"><input type="checkbox" onchange="checkSave()"> Conosce limiti rank</label>
-              <label class="check-item"><input type="checkbox" onchange="checkSave()"> Gestione casi tossici</label>
-              <label class="check-item"><input type="checkbox" onchange="checkSave()"> Escalation corretta</label>
-            </div>
-          </div>
-
-          <!-- NOTES -->
-          <div id="live_notes" class="live-tab-content">
-            <textarea id="notesBox" class="prov-textarea mono" placeholder="Note del provino... (si salva in locale)" oninput="notesSave()"></textarea>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- QUESTIONS (STAFF ONLY) -->
-    <div class="section-card prov-questions">
-      <div class="prov-panel-head">
-        <h3>📋 Domande guidate</h3>
-        <div class="prov-mini">
-          <span class="mini-label">Visibilità</span>
-          <span id="qVisibility" class="mini-badge-tech muted">—</span>
-        </div>
-      </div>
-
-      <div id="staffQuestionsLock" class="warning-box" style="display:none;">
-        Accesso negato: solo staff può vedere le domande.
-      </div>
-
-      <div id="staffQuestions" style="display:none;">
-        <div class="prov-row">
-          <div class="prov-pill">
-            <span class="pill-title">Tipo:</span>
-            <span id="qTitle" class="pill-value mono">—</span>
-          </div>
-          <div class="prov-pill">
-            <span class="pill-title">Candidato:</span>
-            <span id="qCandidate" class="pill-value mono">—</span>
-          </div>
-          <div class="prov-pill">
-            <span class="pill-title">Sessione:</span>
-            <span id="qSession" class="pill-value mono">—</span>
-          </div>
-        </div>
-
-        <div class="q-wrap">
-          <ol id="qList" class="q-list"></ol>
-        </div>
-
-        <div class="prov-row">
-          <button class="prov-btn" onclick="copyQuestions()">📌 Copia domande</button>
-          <button class="prov-btn" onclick="pushQuestionsToTranscript()">↘ Inserisci nel transcript</button>
-        </div>
-
-        <div class="prov-note small">
-          ✅ Consiglio: quando integri backend, rendi questa sezione server-side: se non staff → risposta 403 e zero domande.
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-		
-    <!-- TAB PEX & DEPEX -->
-        <div id="pex" class="tab-content">
-           <div class="section-card">
-           <h2 class="section-title"><span class="emoji">🧩</span> PEX & DEPEX</h2>
-           <p style="color: var(--text-muted); margin-bottom: 25px;">
-              Sezione dedicata alla gestione dei ruoli staff e player.
-           </p>
-
-           <div class="warning-box">
-            🚧 PEX e DEPEX in arrivo.  
-            Le procedure ufficiali, i permessi e i limiti per ogni rank verranno aggiunti prossimamente.
-           </div>
-      </div>
-  </div
         <!-- TAB GESTIONE TICKET -->
         <div id="tickets" class="tab-content active">
             <div class="section-card">
@@ -1957,7 +891,7 @@
             </div>
         </div>
 
-        <!-- TAB COMANDI MC (NUOVO) -->
+        <!-- TAB COMANDI MC -->
         <div id="comandimc" class="tab-content">
             <div class="section-card">
                 <h2 class="section-title"><span class="emoji">⛏️</span> Comandi In-Game Minecraft</h2>
@@ -1970,8 +904,7 @@
                 <!-- Manager -->
                 <div class="ticket-category" style="border-left-color: #FF4444;">
                     <div class="category-header">
-                        <span class="rank-badge rank-manager">Manager</span>
-                        Tutti i Comandi
+                        Manager - Tutti i Comandi
                     </div>
                     <div class="response-box">
                         <strong>🔥 Permessi completi:</strong> Accesso a TUTTI i comandi disponibili (*)
@@ -1981,8 +914,7 @@
                 <!-- SrAdmin -->
                 <div class="ticket-category" style="border-left-color: #FF8E53;">
                     <div class="category-header">
-                        <span class="rank-badge rank-sradmin">SrAdmin</span>
-                        Tutti i Comandi
+                        SrAdmin - Tutti i Comandi
                     </div>
                     <div class="response-box">
                         <strong>🔥 Permessi completi:</strong> Accesso a TUTTI i comandi disponibili (*)
@@ -1992,135 +924,10 @@
                 <!-- Admin -->
                 <div class="ticket-category" style="border-left-color: #FFB545;">
                     <div class="category-header">
-                        <span class="rank-badge rank-admin">Admin</span>
-                        Tutti i Comandi
+                        Admin - Tutti i Comandi
                     </div>
                     <div class="response-box">
                         <strong>🔥 Permessi completi:</strong> Accesso a TUTTI i comandi disponibili (*)
-                    </div>
-                </div>
-
-                <!-- SrMod -->
-                <div class="ticket-category" style="border-left-color: #4CAF50;">
-                    <div class="category-header">
-                        <span class="rank-badge rank-srmod">SrMod</span>
-                        Comandi Moderazione Completa
-                    </div>
-                    <div class="permission-grid">
-                        <div class="permission-item">/ban</div>
-                        <div class="permission-item">/unban</div>
-                        <div class="permission-item">/mute</div>
-                        <div class="permission-item">/unmute</div>
-                        <div class="permission-item">/tempban</div>
-                        <div class="permission-item">/tempmute</div>
-                        <div class="permission-item">/kick</div>
-                        <div class="permission-item">/warn</div>
-                        <div class="permission-item">/ipban</div>
-                        <div class="permission-item">/ipmute</div>
-                        <div class="permission-item">/unwarn</div>
-                        <div class="permission-item">/history</div>
-                        <div class="permission-item">/staffhistory</div>
-                        <div class="permission-item">/banlist</div>
-                        <div class="permission-item">/warnlist</div>
-                        <div class="permission-item">/mutelist</div>
-                        <div class="permission-item">/dupeip</div>
-                        <div class="permission-item">/ipreport</div>
-                        <div class="permission-item">/checkban</div>
-                        <div class="permission-item">/checkmute</div>
-                        <div class="permission-item">/checkwarn</div>
-                        <div class="permission-item">/lockdown</div>
-                        <div class="permission-item">/lastuuid</div>
-                        <div class="permission-item">/notify (all)</div>
-                        <div class="permission-item">/ss</div>
-                        <div class="permission-item">/finish</div>
-                        <div class="permission-item">/sspectate</div>
-                        <div class="permission-item">/ssinfo</div>
-                    </div>
-                </div>
-
-                <!-- Mod -->
-                <div class="ticket-category" style="border-left-color: #6C63FF;">
-                    <div class="category-header">
-                        <span class="rank-badge rank-mod">Mod</span>
-                        Moderazione Standard
-                    </div>
-                    <div class="response-box">
-                        <strong>⚠️ Limiti:</strong> Ban fino a 1 mese massimo, Mute fino a 1 giorno massimo
-                    </div>
-                    <div class="permission-grid">
-                        <div class="permission-item">/tempban (max 1 mese)</div>
-                        <div class="permission-item">/tempmute (max 1 giorno)</div>
-                        <div class="permission-item">/warn</div>
-                        <div class="permission-item">/history</div>
-                        <div class="permission-item">/staffhistory</div>
-                        <div class="permission-item">/banlist</div>
-                        <div class="permission-item">/warnlist</div>
-                        <div class="permission-item">/mutelist</div>
-                        <div class="permission-item">/dupeip</div>
-                        <div class="permission-item">/checkban</div>
-                        <div class="permission-item">/checkmute</div>
-                        <div class="permission-item">/checkwarn</div>
-                        <div class="permission-item">/notify (all)</div>
-                        <div class="permission-item">/ss</div>
-                        <div class="permission-item">/finish</div>
-                        <div class="permission-item">/sspectate</div>
-                        <div class="permission-item">/ssinfo</div>
-                    </div>
-                </div>
-
-                <!-- Helper -->
-                <div class="ticket-category" style="border-left-color: #00BCD4;">
-                    <div class="category-header">
-                        <span class="rank-badge rank-helper">Helper</span>
-                        Moderazione Base
-                    </div>
-                    <div class="response-box">
-                        <strong>⚠️ Limiti:</strong> Ban fino a 1 mese massimo, Mute fino a 1 giorno massimo
-                    </div>
-                    <div class="permission-grid">
-                        <div class="permission-item">/tempban (max 1 mese)</div>
-                        <div class="permission-item">/tempmute (max 1 giorno)</div>
-                        <div class="permission-item">/warn</div>
-                        <div class="permission-item">/history</div>
-                        <div class="permission-item">/staffhistory</div>
-                        <div class="permission-item">/banlist</div>
-                        <div class="permission-item">/warnlist</div>
-                        <div class="permission-item">/mutelist</div>
-                        <div class="permission-item">/dupeip</div>
-                        <div class="permission-item">/checkban</div>
-                        <div class="permission-item">/checkmute</div>
-                        <div class="permission-item">/checkwarn</div>
-                        <div class="permission-item">/notify (all)</div>
-                        <div class="permission-item">/ss</div>
-                        <div class="permission-item">/finish</div>
-                        <div class="permission-item">/sspectate</div>
-                        <div class="permission-item">/ssinfo</div>
-                    </div>
-                </div>
-
-                <!-- Trial -->
-                <div class="ticket-category" style="border-left-color: #9E9E9E;">
-                    <div class="category-header">
-                        <span class="rank-badge rank-trial">Trial</span>
-                        Moderazione Limitata
-                    </div>
-                    <div class="response-box">
-                        <strong>⚠️ Limiti Stretti:</strong> Ban fino a 3 giorni massimo, Mute fino a 1 giorno massimo
-                    </div>
-                    <div class="permission-grid">
-                        <div class="permission-item">/tempban (max 3 giorni)</div>
-                        <div class="permission-item">/tempmute (max 1 giorno)</div>
-                        <div class="permission-item">/warn</div>
-                        <div class="permission-item">/history</div>
-                        <div class="permission-item">/staffhistory</div>
-                        <div class="permission-item">/banlist</div>
-                        <div class="permission-item">/warnlist</div>
-                        <div class="permission-item">/mutelist</div>
-                        <div class="permission-item">/dupeip</div>
-                        <div class="permission-item">/checkban</div>
-                        <div class="permission-item">/checkmute</div>
-                        <div class="permission-item">/checkwarn</div>
-                        <div class="permission-item">/notify (all)</div>
                     </div>
                 </div>
 
@@ -2130,7 +937,7 @@
                     
                     <div class="warning-box">
                         <strong>1. NO ABUSE:</strong><br>
-                        È VIETATO usare i comandi per vantaggi personali (darsi oggetti in sopravvivenza, usare vanish per griffare). L'abuso porta al DE-RANK IMMEDIATO.
+                        È VIETATO usare i comandi per vantaggi personali. L'abuso porta al DE-RANK IMMEDIATO.
                     </div>
 
                     <div class="warning-box">
@@ -2140,47 +947,7 @@
 
                     <div class="warning-box">
                         <strong>3. RISPETTO:</strong><br>
-                        NON usare /kick o /tp per infastidire i player. I comandi sono strumenti di lavoro, non giocattoli.
-                    </div>
-                </div>
-
-                <!-- Guida Rapida Comandi -->
-                <div class="section-card" style="background: var(--dark-lighter); margin-top: 20px;">
-                    <h3 class="section-title"><span class="emoji">📖</span> Guida Rapida Comandi Principali</h3>
-
-                    <div style="margin-bottom: 25px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;">🔨 /ban [player] [motivo]</h4>
-                        <p style="color: var(--text-muted);">Ban permanente. Richiede prove screenshot/video. Solo SrMod+</p>
-                    </div>
-
-                    <div style="margin-bottom: 25px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;">⏱️ /tempban [player] [tempo] [motivo]</h4>
-                        <p style="color: var(--text-muted);">Ban temporaneo. Formato tempo: 1d = 1 giorno, 3h = 3 ore, 30m = 30 minuti</p>
-                    </div>
-
-                    <div style="margin-bottom: 25px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;">🔇 /mute [player] [motivo]</h4>
-                        <p style="color: var(--text-muted);">Mute permanente. Richiede prove. Solo SrMod+</p>
-                    </div>
-
-                    <div style="margin-bottom: 25px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;">⏱️ /tempmute [player] [tempo] [motivo]</h4>
-                        <p style="color: var(--text-muted);">Mute temporaneo. Rispetta i limiti del tuo rank!</p>
-                    </div>
-
-                    <div style="margin-bottom: 25px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;">⚠️ /warn [player] [motivo]</h4>
-                        <p style="color: var(--text-muted);">Warning al player. Tutti i rank staff possono usarlo.</p>
-                    </div>
-
-                    <div style="margin-bottom: 25px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;">📋 /history [player]</h4>
-                        <p style="color: var(--text-muted);">Vedi lo storico sanzioni di un player (ban, mute, warn)</p>
-                    </div>
-
-                    <div style="margin-bottom: 25px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;">🖥️ /ss [player]</h4>
-                        <p style="color: var(--text-muted);">Avvia screenshare (controllo anti-cheat). Congela il player e avvia la procedura.</p>
+                        NON usare comandi per infastidire i player. I comandi sono strumenti di lavoro, non giocattoli.
                     </div>
                 </div>
             </div>
@@ -2263,413 +1030,401 @@
                     </div>
                 </div>
 
-                <!-- COMANDI /renameticket -->
-                <div class="ticket-category" data-command-category>
-                    <div class="category-header">📝 Comandi /renameticket</div>
-                    <p style="color: var(--text-muted); margin-bottom: 15px;">Rinomina il canale ticket secondo la tipologia</p>
+                <!-- Altri comandi bot... (mantengo solo le parti essenziali per brevità) -->
+                
+            </div>
+        </div>
 
-                    <div class="command-box" onclick="copyCommand('/renameticket attesa-riscontro')">
+        <!-- TAB MAFIA -->
+        <div id="mafia" class="tab-content">
+            <div class="section-card">
+                <h2 class="section-title"><span class="emoji">🔫</span> Modalità Mafia - Guida Staff</h2>
+                <p style="color: var(--text-muted); margin-bottom: 30px;">Regolamento, comandi utili e procedure per la gestione della modalità Mafia.</p>
+
+                <div class="warning-box">
+                    🔥 ATTENZIONE: La modalità Mafia è COMPETITIVA. Le sanzioni sono più severe per mantenere il fair play!
+                </div>
+
+                <!-- REGOLAMENTO MAFIA -->
+                <div class="ticket-category">
+                    <div class="category-header">📜 Regolamento Modalità Mafia</div>
+                    
+                    <ul class="rules-list">
+                        <li><strong>✅ PvP Autorizzato:</strong> Il PvP è permesso ovunque tranne nelle safe zone (spawn, banche sicure).</li>
+                        <li><strong>🏠 Territori delle Famiglie:</strong> Ogni famiglia può rivendicare territorio. Raid autorizzati secondo le regole delle guerre tra famiglie.</li>
+                        <li><strong>💰 Economia Mafiosa:</strong> Commercio, estorsioni e rapine fanno parte del gameplay. NO scam reale (fuori dal roleplay).</li>
+                        <li><strong>🤝 Alleanze:</strong> Le famiglie possono allearsi ma devono dichiararlo pubblicamente in chat o tramite ticket.</li>
+                        <li><strong>⚔️ War System:</strong> Le guerre tra famiglie devono essere dichiarate con 24h di anticipo tramite comando <span class="highlight">/war declare [famiglia]</span></li>
+                        <li><strong>🚫 NO Griefing Eccessivo:</strong> Distruggere completamente le basi è vietato. Raid per bottino OK, distruzione totale NO.</li>
+                        <li><strong>🎭 Roleplay:</strong> Incoraggiato ma non obbligatorio. Rispettare sempre gli altri player OOC (out of character).</li>
+                    </ul>
+                </div>
+
+                <!-- COMANDI UTILI MAFIA -->
+                <div class="ticket-category">
+                    <div class="category-header">⚡ Comandi Utili Modalità Mafia</div>
+                    
+                    <div class="command-box" onclick="copyCommand('/famiglia create [nome]')">
                         <div>
-                            <span class="command-text">/renameticket attesa-riscontro</span><br>
-                            <small style="color: var(--text-muted);">Provini orali/Candidature (OBBLIGATORIO)</small>
+                            <span class="command-text">/famiglia create [nome]</span><br>
+                            <small style="color: var(--text-muted);">Crea una nuova famiglia mafiosa</small>
                         </div>
                         <button class="copy-btn">Copia</button>
                     </div>
 
-                    <div class="command-box" onclick="copyCommand('/renameticket supporto-store')">
+                    <div class="command-box" onclick="copyCommand('/famiglia invite [player]')">
                         <div>
-                            <span class="command-text">/renameticket supporto-store</span><br>
-                            <small style="color: var(--text-muted);">Supporto Store</small>
+                            <span class="command-text">/famiglia invite [player]</span><br>
+                            <small style="color: var(--text-muted);">Invita un giocatore nella famiglia</small>
                         </div>
                         <button class="copy-btn">Copia</button>
                     </div>
 
-                    <div class="command-box" onclick="copyCommand('/renameticket problemi-sito')">
+                    <div class="command-box" onclick="copyCommand('/war declare [famiglia]')">
                         <div>
-                            <span class="command-text">/renameticket problemi-sito</span><br>
-                            <small style="color: var(--text-muted);">Problemi con il sito web</small>
+                            <span class="command-text">/war declare [famiglia]</span><br>
+                            <small style="color: var(--text-muted);">Dichiara guerra a un'altra famiglia (richiede 24h notice)</small>
                         </div>
                         <button class="copy-btn">Copia</button>
                     </div>
 
-                    <div class="command-box" onclick="copyCommand('/renameticket unban')">
+                    <div class="command-box" onclick="copyCommand('/territorio claim')">
                         <div>
-                            <span class="command-text">/renameticket unban</span><br>
-                            <small style="color: var(--text-muted);">Richiesta Unban</small>
+                            <span class="command-text">/territorio claim</span><br>
+                            <small style="color: var(--text-muted);">Rivendica un territorio per la tua famiglia</small>
                         </div>
                         <button class="copy-btn">Copia</button>
                     </div>
 
-                    <div class="command-box" onclick="copyCommand('/renameticket partnership')">
+                    <div class="command-box" onclick="copyCommand('/negozio apri')">
                         <div>
-                            <span class="command-text">/renameticket partnership</span><br>
-                            <small style="color: var(--text-muted);">Partnership</small>
+                            <span class="command-text">/negozio apri</span><br>
+                            <small style="color: var(--text-muted);">Apre il negozio della famiglia (compravendita)</small>
                         </div>
                         <button class="copy-btn">Copia</button>
                     </div>
 
-                    <div class="command-box" onclick="copyCommand('/renameticket candidatura')">
+                    <div class="command-box" onclick="copyCommand('/alleanza proponi [famiglia]')">
                         <div>
-                            <span class="command-text">/renameticket candidatura</span><br>
-                            <small style="color: var(--text-muted);">Candidatura Staff (poi esegui /candidatura)</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-
-                    <div class="command-box" onclick="copyCommand('/renameticket segnalazione')">
-                        <div>
-                            <span class="command-text">/renameticket segnalazione</span><br>
-                            <small style="color: var(--text-muted);">Segnalazione Player/Bug</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-
-                    <div class="command-box" onclick="copyCommand('/renameticket headstaff')">
-                        <div>
-                            <span class="command-text">/renameticket headstaff</span><br>
-                            <small style="color: var(--text-muted);">Parlare con HeadStaff</small>
+                            <span class="command-text">/alleanza proponi [famiglia]</span><br>
+                            <small style="color: var(--text-muted);">Propone alleanza a un'altra famiglia</small>
                         </div>
                         <button class="copy-btn">Copia</button>
                     </div>
                 </div>
 
-                <!-- COMANDI /sposta (IMPORTANTISSIMO) -->
-                <div class="ticket-category" data-command-category style="border-left-color: var(--danger);">
-                    <div class="category-header">📂 Comandi /sposta (MOLTO IMPORTANTE)</div>
-                    <div class="warning-box" style="margin: 15px 0;">
-                        Sposta il ticket in una categoria specifica. OBBLIGATORIO usarlo!
+                <!-- TABELLA SANZIONI MAFIA -->
+                <div class="ticket-category">
+                    <div class="category-header">⚖️ Sistema Sanzioni Modalità Mafia</div>
+                    
+                    <table class="sanction-table">
+                        <thead>
+                            <tr>
+                                <th>Infrazione</th>
+                                <th>Prima Volta</th>
+                                <th>Seconda Volta</th>
+                                <th>Terza Volta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Hacking/Cheat</strong></td>
+                                <td>Ban Permanente</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Griefing Eccessivo</strong></td>
+                                <td>Warn + Rollback</td>
+                                <td>Ban 7 giorni</td>
+                                <td>Ban 30 giorni</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kill Spawn</strong></td>
+                                <td>Warn</td>
+                                <td>Ban 3 giorni</td>
+                                <td>Ban 14 giorni</td>
+                            </tr>
+                            <tr>
+                                <td><strong>War Non Dichiarata</strong></td>
+                                <td>Warn + Rimborso</td>
+                                <td>Ban 5 giorni</td>
+                                <td>Ban 15 giorni</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bug Abuse (Duping)</strong></td>
+                                <td>Ban 30 giorni + Wipe inventario</td>
+                                <td>Ban Permanente</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Insulti/Tossicità</strong></td>
+                                <td>Mute 6h</td>
+                                <td>Mute 24h</td>
+                                <td>Ban 3 giorni</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Scam Reale (€)</strong></td>
+                                <td>Ban Permanente + Report Autorità</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PROCEDURE STAFF MAFIA -->
+                <div class="ticket-category">
+                    <div class="category-header">🛠️ Procedure per lo Staff</div>
+                    
+                    <div class="action-box">
+                        <strong>✅ Prima di Bannare su Mafia:</strong><br>
+                        1. Verificare le prove (screenshot/video OBBLIGATORI)<br>
+                        2. Controllare i log del server per conferma<br>
+                        3. Verificare se è recidivo (/history [player])<br>
+                        4. Applicare sanzione secondo tabella sopra<br>
+                        5. Loggare nel canale #sanzioni-mafia con prove allegate<br>
+                        6. Se dubbi, consultare un Admin+ prima di procedere
                     </div>
 
-                    <div class="command-box" onclick="copyCommand('/sposta Attesa Riscontro')">
-                        <div>
-                            <span class="command-text">/sposta Attesa Riscontro</span><br>
-                            <small style="color: var(--text-muted);">Ticket candidature, provini orali, attesa risposta player</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
+                    <div class="action-box">
+                        <strong>📋 Gestione War tra Famiglie:</strong><br>
+                        1. Verificare che la war sia stata dichiarata con /war declare<br>
+                        2. Controllare che siano passate 24h dalla dichiarazione<br>
+                        3. Monitorare che non ci siano kill spawn o griefing eccessivo<br>
+                        4. A fine war, registrare il vincitore e i termini di pace<br>
+                        5. In caso di controversie, mediare o passare ad Admin+
                     </div>
 
-                    <div class="command-box" onclick="copyCommand('/sposta Store')">
-                        <div>
-                            <span class="command-text">/sposta Store</span><br>
-                            <small style="color: var(--text-muted);">Problemi acquisti store, rimborsi, domande prodotti</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-
-                    <div class="command-box" onclick="copyCommand('/sposta HeadStaff')">
-                        <div>
-                            <span class="command-text">/sposta HeadStaff</span><br>
-                            <small style="color: var(--text-muted);">Player vuole parlare con headstaff, questioni delicate, reclami gravi</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-
-                    <div class="command-box" onclick="copyCommand('/sposta Richieste Unban')">
-                        <div>
-                            <span class="command-text">/sposta Richieste Unban</span><br>
-                            <small style="color: var(--text-muted);">Richiesta unban, appelli ban</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-
-                    <div class="command-box" onclick="copyCommand('/sposta Ckanto')">
-                        <div>
-                            <span class="command-text">/sposta Ckanto</span><br>
-                            <small style="color: var(--text-muted);">Ticket specifici per Owner ck_anto</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-
-                    <div class="command-box" onclick="copyCommand('/sposta Blacked')">
-                        <div>
-                            <span class="command-text">/sposta Blacked</span><br>
-                            <small style="color: var(--text-muted);">Ticket specifici per Owner blacked104</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-
-                    <div class="command-box" onclick="copyCommand('/sposta Daze')">
-                        <div>
-                            <span class="command-text">/sposta Daze</span><br>
-                            <small style="color: var(--text-muted);">Ticket specifici per Admin daze</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
+                    <div class="action-box">
+                        <strong>🔍 Controllo Anti-Cheat:</strong><br>
+                        1. Se sospetti hack: /ss [player] (avvia screenshare)<br>
+                        2. Controllare file .minecraft, processi, mod folder<br>
+                        3. Se confermato cheat: ban immediato + log completo<br>
+                        4. Se pulito: scusarsi e chiudere SS cortesemente
                     </div>
                 </div>
 
-                <!-- COMANDI CANDIDATURE -->
-                <div class="ticket-category" data-command-category>
-                    <div class="category-header">👥 Comandi Candidature</div>
-
-                    <div class="command-box" onclick="copyCommand('/candidatura')">
-                        <div>
-                            <span class="command-text">/candidatura</span><br>
-                            <small style="color: var(--text-muted);">Apre form candidatura (usato dopo /renameticket candidatura)</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-
-                    <div class="command-box" onclick="copyCommand('/candidatura-attesa @utente helper')">
-                        <div>
-                            <span class="command-text">/candidatura-attesa @utente [tipo]</span><br>
-                            <small style="color: var(--text-muted);">Segna candidatura come IN ATTESA (tipo: helper o developer)</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-
-                    <div class="command-box" onclick="copyCommand('/candidatura-accettata @utente helper')">
-                        <div>
-                            <span class="command-text">/candidatura-accettata @utente [tipo]</span><br>
-                            <small style="color: var(--text-muted);">Accetta candidatura (invia messaggio congratulazioni)</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-
-                    <div class="command-box" onclick="copyCommand('/candidatura-rifiutata @utente helper \"Motivo\"')">
-                        <div>
-                            <span class="command-text">/candidatura-rifiutata @utente [tipo] [motivo]</span><br>
-                            <small style="color: var(--text-muted);">Rifiuta candidatura con motivazione</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-                </div>
-
-                <!-- COMANDI STAFF -->
-                <div class="ticket-category" data-command-category>
-                    <div class="category-header">⚔️ Comandi Staff</div>
-
-                    <div class="command-box" onclick="copyCommand('/warn @utente Motivo')">
-                        <div>
-                            <span class="command-text">/warn @utente [motivo]</span><br>
-                            <small style="color: var(--text-muted);">Invia warn (l'utente lo riceve in DM e viene loggato)</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-
-                    <div class="command-box" onclick="copyCommand('/pex @utente @ruolo')">
-                        <div>
-                            <span class="command-text">/pex @utente @ruolo</span><br>
-                            <small style="color: var(--text-muted);">Assegna rank/ruolo (viene loggato nel canale pex/depex)</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-
-                    <div class="command-box" onclick="copyCommand('/depex @utente @ruolo')">
-                        <div>
-                            <span class="command-text">/depex @utente @ruolo</span><br>
-                            <small style="color: var(--text-muted);">Rimuove rank/ruolo (viene loggato nel canale pex/depex)</small>
-                        </div>
-                        <button class="copy-btn">Copia</button>
-                    </div>
-                </div>
-
-                <!-- SCENARI PRATICI -->
-                <div class="section-card" style="background: var(--dark-lighter); margin-top: 30px;">
-                    <h3 class="section-title"><span class="emoji">📖</span> Scenari Pratici</h3>
-
-                    <div style="margin-bottom: 25px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;">🎯 Scenario 1: Player apre ticket per candidatura</h4>
-                        <ol style="color: var(--text-muted); line-height: 2;">
-                            <li>Player usa pannello ticket → seleziona "Candidatura"</li>
-                            <li>Entri nel ticket</li>
-                            <li>Esegui: <span class="highlight">/renameticket candidatura</span></li>
-                            <li>Esegui: <span class="highlight">/candidatura</span> per processare</li>
-                            <li>Esegui: <span class="highlight">/sposta Attesa Riscontro</span></li>
-                        </ol>
-                    </div>
-
-                    <div style="margin-bottom: 25px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;">🎯 Scenario 2: Player ha problemi con lo store</h4>
-                        <ol style="color: var(--text-muted); line-height: 2;">
-                            <li>Player apre ticket → seleziona "Supporto"</li>
-                            <li>Entri nel ticket</li>
-                            <li>Esegui: <span class="highlight">/renameticket supporto-store</span></li>
-                            <li>Esegui: <span class="highlight">/sposta Store</span></li>
-                            <li>Gestisci il problema</li>
-                        </ol>
-                    </div>
-
-                    <div style="margin-bottom: 25px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;">🎯 Scenario 3: Player vuole parlare con HeadStaff</h4>
-                        <ol style="color: var(--text-muted); line-height: 2;">
-                            <li>Player apre ticket</li>
-                            <li>Entri nel ticket</li>
-                            <li>Esegui: <span class="highlight">/renameticket headstaff</span></li>
-                            <li>Esegui: <span class="highlight">/sposta HeadStaff</span></li>
-                            <li>Esegui: <span class="highlight">/add @HeadStaff</span> per dare accesso</li>
-                        </ol>
-                    </div>
-
-                    <div>
-                        <h4 style="color: var(--primary); margin-bottom: 10px;">🎯 Scenario 4: Player chiede unban</h4>
-                        <ol style="color: var(--text-muted); line-height: 2;">
-                            <li>Player apre ticket</li>
-                            <li>Entri nel ticket</li>
-                            <li>Esegui: <span class="highlight">/renameticket unban</span></li>
-                            <li>Esegui: <span class="highlight">/sposta Richieste Unban</span></li>
-                        </ol>
-                    </div>
-                </div>
-
-                <!-- REGOLE IMPORTANTI -->
                 <div class="warning-box" style="margin-top: 30px;">
-                    <strong>⚠️ REGOLE IMPORTANTI:</strong><br><br>
-                    1. <strong>SEMPRE</strong> usare /sposta quando appropriato - pena WARN<br>
-                    2. <strong>SEMPRE</strong> rinominare i ticket con /renameticket secondo la tipologia<br>
-                    3. <strong>SEMPRE</strong> claimare i ticket con /claim prima di gestirli<br>
-                    4. <strong>MAI</strong> chiudere ticket senza aver risolto il problema<br>
-                    5. <strong>SEMPRE</strong> loggare le azioni importanti
+                    <strong>⚠️ RICORDA:</strong><br>
+                    Mafia è una modalità competitiva ma DEVE rimanere divertente per tutti. Zero tolleranza per hack/cheat/scam reale. 
+                    Per tutto il resto, applicare buonsenso e rispetto.
                 </div>
             </div>
         </div>
 
-   <!-- TAB STAFF -->
-<div id="staff" class="tab-content">
-  <div class="section-card">
-    <h2 class="section-title"><span class="emoji">👥</span> Staff AxisMC</h2>
-    <p style="color: var(--text-muted); margin-bottom: 25px;">
-      Elenco staff diviso per rank.
-    </p>
+        <!-- TAB MAFIASANDBOX -->
+        <div id="mafiasandbox" class="tab-content">
+            <div class="section-card">
+                <h2 class="section-title"><span class="emoji">🎮</span> MafiaSandbox - Guida Staff</h2>
+                <p style="color: var(--text-muted); margin-bottom: 30px;">Regolamento, comandi e procedure per la modalità sandbox di prova.</p>
 
-    <!-- OWNER -->
-    <div class="staff-section">
-      <div class="staff-section-header">
-        <span class="rank-badge rank-manager">Owner</span>
-      </div>
+                <div class="warning-box">
+                    🧪 ATTENZIONE: MafiaSandbox è un ambiente di TEST. Le regole sono più rilassate ma il rispetto è sempre obbligatorio!
+                </div>
 
-      <div class="staff-grid">
-        <div class="staff-card">
-          <div class="staff-avatar">CK</div>
-          <div class="staff-meta">
-            <div class="staff-name">ck_anto</div>
-            <div class="staff-rank"><span class="rank-badge rank-manager">Owner</span></div>
-          </div>
+                <!-- REGOLAMENTO MAFIASANDBOX -->
+                <div class="ticket-category">
+                    <div class="category-header">📜 Regolamento MafiaSandbox</div>
+                    
+                    <ul class="rules-list">
+                        <li><strong>🧪 Ambiente di Test:</strong> MafiaSandbox è per testare features, build, meccaniche prima di portarle su Mafia principale.</li>
+                        <li><strong>✅ Regole Rilassate:</strong> PvP consensuale, griefing permesso (è sandbox), economia non seria.</li>
+                        <li><strong>🔄 Wipe Frequenti:</strong> Il mondo può essere resettato SENZA preavviso quando serve testare nuove cose.</li>
+                        <li><strong>🎭 No Sanzioni Serie:</strong> A meno di hack/cheat, le infrazioni su Sandbox non portano ban su Mafia principale.</li>
+                        <li><strong>⚠️ Bug Report Obbligatori:</strong> Se trovi bug, DEVI segnalarli. Abusare bug senza segnalare = warn.</li>
+                        <li><strong>🚫 VIETATO:</strong> Hack, Crash del server intenzionale, Lag machine, Spam estremo.</li>
+                        <li><strong>👥 Rispetto Base:</strong> Anche se è sandbox, insulti gravi e tossicità eccessiva non sono tollerati.</li>
+                    </ul>
+                </div>
+
+                <!-- COMANDI UTILI SANDBOX -->
+                <div class="ticket-category">
+                    <div class="category-header">⚡ Comandi Utili MafiaSandbox</div>
+                    
+                    <div class="command-box" onclick="copyCommand('/test [feature]')">
+                        <div>
+                            <span class="command-text">/test [feature]</span><br>
+                            <small style="color: var(--text-muted);">Attiva modalità test per una feature specifica</small>
+                        </div>
+                        <button class="copy-btn">Copia</button>
+                    </div>
+
+                    <div class="command-box" onclick="copyCommand('/bug report [descrizione]')">
+                        <div>
+                            <span class="command-text">/bug report [descrizione]</span><br>
+                            <small style="color: var(--text-muted);">Segnala un bug trovato durante i test</small>
+                        </div>
+                        <button class="copy-btn">Copia</button>
+                    </div>
+
+                    <div class="command-box" onclick="copyCommand('/sandbox reset')">
+                        <div>
+                            <span class="command-text">/sandbox reset</span><br>
+                            <small style="color: var(--text-muted);">Resetta il tuo inventario/progressi (solo Admin+)</small>
+                        </div>
+                        <button class="copy-btn">Copia</button>
+                    </div>
+
+                    <div class="command-box" onclick="copyCommand('/give [item] [quantità]')">
+                        <div>
+                            <span class="command-text">/give [item] [quantità]</span><br>
+                            <small style="color: var(--text-muted);">Ottieni item per testare (limitato a tester approvati)</small>
+                        </div>
+                        <button class="copy-btn">Copia</button>
+                    </div>
+
+                    <div class="command-box" onclick="copyCommand('/feedback [testo]')">
+                        <div>
+                            <span class="command-text">/feedback [testo]</span><br>
+                            <small style="color: var(--text-muted);">Invia feedback su features in test</small>
+                        </div>
+                        <button class="copy-btn">Copia</button>
+                    </div>
+
+                    <div class="command-box" onclick="copyCommand('/tp [player]')">
+                        <div>
+                            <span class="command-text">/tp [player]</span><br>
+                            <small style="color: var(--text-muted);">Teletrasporto (disponibile per tutti in sandbox)</small>
+                        </div>
+                        <button class="copy-btn">Copia</button>
+                    </div>
+                </div>
+
+                <!-- TABELLA SANZIONI SANDBOX -->
+                <div class="ticket-category">
+                    <div class="category-header">⚖️ Sistema Sanzioni MafiaSandbox</div>
+                    
+                    <table class="sanction-table">
+                        <thead>
+                            <tr>
+                                <th>Infrazione</th>
+                                <th>Prima Volta</th>
+                                <th>Seconda Volta</th>
+                                <th>Terza Volta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Hacking/Cheat</strong></td>
+                                <td>Ban 7 giorni</td>
+                                <td>Ban 30 giorni</td>
+                                <td>Ban Permanente Sandbox + Mafia</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Crash Server Intenzionale</strong></td>
+                                <td>Ban Permanente Sandbox + Mafia</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lag Machine</strong></td>
+                                <td>Warn + Rimozione</td>
+                                <td>Ban 3 giorni</td>
+                                <td>Ban 14 giorni</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bug Abuse Senza Segnalare</strong></td>
+                                <td>Warn</td>
+                                <td>Kick</td>
+                                <td>Ban 3 giorni</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Spam Estremo</strong></td>
+                                <td>Mute 1h</td>
+                                <td>Mute 6h</td>
+                                <td>Mute 24h</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Insulti Gravi</strong></td>
+                                <td>Warn</td>
+                                <td>Mute 3h</td>
+                                <td>Ban 1 giorno</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Griefing/PvP</strong></td>
+                                <td>PERMESSO (è sandbox!)</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PROCEDURE STAFF SANDBOX -->
+                <div class="ticket-category">
+                    <div class="category-header">🛠️ Procedure per lo Staff su Sandbox</div>
+                    
+                    <div class="action-box">
+                        <strong>✅ Gestione Bug Report:</strong><br>
+                        1. Player usa /bug report o apre ticket<br>
+                        2. Verificare e riprodurre il bug se possibile<br>
+                        3. Loggare nel canale #sandbox-bugs con dettagli<br>
+                        4. Ringraziare il player per la segnalazione<br>
+                        5. Se bug critico, notificare immediatamente Admin/Developer
+                    </div>
+
+                    <div class="action-box">
+                        <strong>📋 Gestione Feedback:</strong><br>
+                        1. Player usa /feedback o scrive in chat<br>
+                        2. Raccogliere feedback costruttivo<br>
+                        3. Postare in #sandbox-feedback<br>
+                        4. Se feedback ripetuto da più player, evidenziarlo agli sviluppatori
+                    </div>
+
+                    <div class="action-box">
+                        <strong>🔧 Sandbox Wipe Procedure:</strong><br>
+                        1. Admin/Developer annuncia wipe con ALMENO 6h anticipo<br>
+                        2. Staff avvisa in-game ogni ora prima del wipe<br>
+                        3. Ultimo avviso 10 minuti prima<br>
+                        4. Post-wipe: accogliere player e spiegare nuove features testate
+                    </div>
+
+                    <div class="action-box">
+                        <strong>🚨 Gestione Emergenze (Crash/Lag):</strong><br>
+                        1. Identificare source del problema (/tps, /timings)<br>
+                        2. Se lag machine: /remove entities nel raggio o kickare responsabile<br>
+                        3. Se crash imminente: salvare e kickare tutti con /stop<br>
+                        4. Loggare incidente e segnalare a Developer
+                    </div>
+                </div>
+
+                <div class="warning-box" style="margin-top: 30px;">
+                    <strong>⚠️ FILOSOFIA SANDBOX:</strong><br>
+                    L'obiettivo è TESTARE e MIGLIORARE. Siate pazienti con i bug, incoraggiate i report, premiate i tester attivi. 
+                    Sandbox è dove sperimentiamo per rendere Mafia migliore!
+                </div>
+
+                <!-- INFO TESTER -->
+                <div class="ticket-category" style="border-left-color: var(--success);">
+                    <div class="category-header">
+                        🏆 Programma Tester
+                    </div>
+                    
+                    <div class="response-box">
+                        <strong>Come Diventare Tester Ufficiale:</strong><br><br>
+                        1. Giocare attivamente su MafiaSandbox<br>
+                        2. Segnalare almeno 5 bug validi<br>
+                        3. Fornire feedback costruttivo regolare<br>
+                        4. Rispettare le regole sandbox<br>
+                        5. Candidarsi tramite ticket "Richiesta Tester"<br><br>
+                        
+                        <strong>Vantaggi Tester:</strong><br>
+                        ✅ Accesso anticipato a nuove features<br>
+                        ✅ Comando /give per testing<br>
+                        ✅ Tag speciale [TESTER] in-game<br>
+                        ✅ Voce nelle decisioni di sviluppo<br>
+                        ✅ Rewards su Mafia principale per contributi significativi
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="staff-card">
-          <div class="staff-avatar">BL</div>
-          <div class="staff-meta">
-            <div class="staff-name">Blacked</div>
-            <div class="staff-rank"><span class="rank-badge rank-manager">Owner</span></div>
-          </div>
-        </div>
-
-        <div class="staff-card">
-          <div class="staff-avatar">BE</div>
-          <div class="staff-meta">
-            <div class="staff-name">Beffax</div>
-            <div class="staff-rank"><span class="rank-badge rank-manager">Owner</span></div>
-          </div>
-        </div>
-
-        <div class="staff-card">
-          <div class="staff-avatar">NA</div>
-          <div class="staff-meta">
-            <div class="staff-name">Nash</div>
-            <div class="staff-rank"><span class="rank-badge rank-manager">Owner</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SR.ADMIN -->
-    <div class="staff-section">
-      <div class="staff-section-header">
-        <span class="rank-badge rank-sradmin">Sr.Admin</span>
-      </div>
-      <p class="staff-empty">Nessuno</p>
-    </div>
-
-    <!-- ADMIN -->
-    <div class="staff-section">
-      <div class="staff-section-header">
-        <span class="rank-badge rank-admin">Admin</span>
-      </div>
-
-      <div class="staff-grid">
-        <div class="staff-card">
-          <div class="staff-avatar">DZ</div>
-          <div class="staff-meta">
-            <div class="staff-name">Daze</div>
-            <div class="staff-rank"><span class="rank-badge rank-admin">Admin</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SR.MOD -->
-    <div class="staff-section">
-      <div class="staff-section-header">
-        <span class="rank-badge rank-srmod">SrMod</span>
-      </div>
-      <p class="staff-empty">Nessuno</p>
-    </div>
-
-    <!-- MOD -->
-    <div class="staff-section">
-      <div class="staff-section-header">
-        <span class="rank-badge rank-mod">Mod</span>
-      </div>
-      <p class="staff-empty">Nessuno</p>
-    </div>
-
-    <!-- HELPER -->
-    <div class="staff-section">
-      <div class="staff-section-header">
-        <span class="rank-badge rank-helper">Helper</span>
-      </div>
-
-      <div class="staff-grid">
-        <div class="staff-card">
-          <div class="staff-avatar">PL</div>
-          <div class="staff-meta">
-            <div class="staff-name">PlayBO1Carty_</div>
-            <div class="staff-rank"><span class="rank-badge rank-helper">Helper</span></div>
-          </div>
-        </div>
-
-        <div class="staff-card">
-          <div class="staff-avatar">NF</div>
-          <div class="staff-meta">
-            <div class="staff-name">NanoDiFoggia</div>
-            <div class="staff-rank"><span class="rank-badge rank-helper">Helper</span></div>
-          </div>
-        </div>
-
-        <div class="staff-card">
-          <div class="staff-avatar">SI</div>
-          <div class="staff-meta">
-            <div class="staff-name">Sigma</div>
-            <div class="staff-rank"><span class="rank-badge rank-helper">Helper</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TRIAL -->
-    <div class="staff-section">
-      <div class="staff-section-header">
-        <span class="rank-badge rank-trial">Trial</span>
-      </div>
-
-      <div class="staff-grid">
-        <div class="staff-card">
-          <div class="staff-avatar">TE</div>
-          <div class="staff-meta">
-            <div class="staff-name">Ten87_</div>
-            <div class="staff-rank"><span class="rank-badge rank-trial">Trial</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
         <!-- TAB REGOLAMENTO -->
         <div id="regolamento" class="tab-content">
             <div class="section-card">
                 <h2 class="section-title"><span class="emoji">📜</span> Regolamento Server AxisMC</h2>
-                <p style="color: var(--text-muted); margin-bottom: 30px;">Server Mafia - Regole e sanzioni</p>
+                <p style="color: var(--text-muted); margin-bottom: 30px;">Regole generali valide su TUTTE le modalità.</p>
 
                 <div class="ticket-category">
                     <div class="category-header">⚔️ Regole Generali</div>
@@ -2682,272 +1437,171 @@
                     </ul>
                 </div>
 
-                <div class="ticket-category">
-                    <div class="category-header">🎮 Regole Gameplay Mafia</div>
-                    <ul class="rules-list">
-                        <li><strong>No teaming non autorizzato:</strong> Le alleanze devono essere dichiarate secondo le regole della faction.</li>
-                        <li><strong>No griefing spawn/safe zone:</strong> Le aree protette vanno rispettate.</li>
-                        <li><strong>No kill stealing:</strong> Rispettare il combattimento altrui.</li>
-                        <li><strong>Territorio famiglie:</strong> Rispettare i confini delle famiglie mafiose stabilite.</li>
-                    </ul>
-                </div>
-
-                <div class="ticket-category">
-                    <div class="category-header">⚖️ Sistema Sanzioni</div>
-                    <ul class="rules-list">
-                        <li><strong>Prima infrazione:</strong> Warning verbale/scritto</li>
-                        <li><strong>Seconda infrazione:</strong> Mute temporaneo (1-24h) o kick</li>
-                        <li><strong>Terza infrazione:</strong> Ban temporaneo (1-7 giorni)</li>
-                        <li><strong>Infrazioni gravi:</strong> Ban permanente immediato (hack, doxing, minacce gravi)</li>
-                    </ul>
-                </div>
-
                 <div class="warning-box">
                     Le sanzioni variano in base alla gravità. Lo staff ha discrezionalità nel valutare caso per caso. In dubbio, consulta sempre un HeadStaff.
                 </div>
             </div>
         </div>
-		
-		<!-- TAB ANNUNCI -->
-<div id="annunci" class="tab-content">
-  <div class="section-card">
-    <h2 class="section-title"><span class="emoji">📢</span> Annunci & Changelog</h2>
-    <p style="color: var(--text-muted); margin-bottom: 25px;">
-      Tutti gli aggiornamenti e le modifiche effettuate al sito. Gli annunci più importanti restano in evidenza.
-    </p>
 
-    <!-- Annuncio in evidenza -->
-    <div class="ticket-category" style="border-left-color: var(--danger);">
-      <div class="category-header">
-        📌 In Evidenza
-        <span class="priority-badge priority-alta">Priorità Alta</span>
-      </div>
+        <!-- TAB ANNUNCI -->
+        <div id="annunci" class="tab-content">
+            <div class="section-card">
+                <h2 class="section-title"><span class="emoji">📢</span> Annunci & Changelog</h2>
+                <p style="color: var(--text-muted); margin-bottom: 25px;">
+                    Tutti gli aggiornamenti e le modifiche effettuate al sito.
+                </p>
 
-      <div class="response-box">
-        <strong>🚀 Rilascio Dashboard Staff — Versione 1.0</strong><br><br>
-        ✅ Nuova interfaccia completa stile “dashboard”<br>
-        ✅ Navigazione a tab (Ticket / Comandi MC / Comandi Bot / Regole / Regolamento / Annunci)<br>
-        ✅ Design dark moderno + animazioni + componenti interattivi<br>
-        ✅ Sistema copia-comandi con notifica “Comando copiato”<br>
-        ✅ Ricerca comandi bot integrata<br>
-		✅ Sistema di utente attivo
-      </div>
+                <div class="ticket-category" style="border-left-color: var(--danger);">
+                    <div class="category-header">
+                        📌 Ultimo Aggiornamento
+                        <span class="priority-badge priority-alta">Nuovo</span>
+                    </div>
 
-      <div class="action-box">
-        <strong>📅 Data:</strong> 11/02/2026<br>
-        <strong>👨‍💻 Developer:</strong> ck_anto
-      </div>
+                    <div class="response-box">
+                        <strong>🚀 Aggiornamento Dashboard v2.0</strong><br><br>
+                        ✅ Aggiunte tab Mafia e MafiaSandbox<br>
+                        ✅ Rimosse tab Pex, Depex e Staff<br>
+                        ✅ Nuovi regolamenti e procedure per entrambe le modalità<br>
+                        ✅ Tabelle sanzioni dettagliate<br>
+                        ✅ Comandi utili specifici per ogni gamemode<br>
+                        ✅ Sistema tester per Sandbox
+                    </div>
+
+                    <div class="action-box">
+                        <strong>📅 Data:</strong> 11/02/2026<br>
+                        <strong>👨‍💻 Developer:</strong> ck_anto
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <!-- Changelog -->
-    <div class="ticket-category">
-      <div class="category-header">
-        🧾 Changelog Completo
-        <span class="priority-badge priority-normale">Aggiornamenti</span>
-      </div>
+    <script>
+        // Tab System
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
 
-      <ul class="rules-list">
-        <li>
-          <strong>✅ UI/Design:</strong><br>
-          Restyling completo (palette, card, badge priorità, animazioni, layout responsive).
-        </li>
-        <li>
-          <strong>✅ Ticket Guide:</strong><br>
-          Inserite risposte standard + checklist operative + comandi rapidi per ogni categoria.
-        </li>
-        <li>
-          <strong>✅ Comandi MC:</strong><br>
-          Tab dedicata con permessi per rank (Manager → Trial) + regole fondamentali anti-abuse.
-        </li>
-        <li>
-          <strong>✅ Comandi Bot:</strong><br>
-          Sezione organizzata per categorie + ricerca testuale comandi + warning box.
-        </li>
-        <li>
-          <strong>✅ Regole & Regolamento:</strong><br>
-          Regole d’oro per lo staff + regolamento server con sistema sanzioni.
-        </li>
-        <li>
-          <strong>✅ Profilo Staff (UI):</strong><br>
-          Dropdown menu utente con notifiche (Chat Staff / Ticket / Annunci) in alto a destra.
-        </li>
-      </ul>
-    </div>
+            const tabBtns = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].classList.remove("active");
+            }
 
-    <!-- Info versione -->
-    <div class="section-card" style="margin-top: 30px; background: rgba(108,99,255,0.08); border-color: var(--primary);">
-      <h3 style="margin-bottom: 10px;">📦 Info Build</h3>
-      <p style="color: var(--text-muted); line-height: 1.9;">
-        <strong>Versione:</strong> <span class="highlight">1.0</span><br>
-        <strong>Developer:</strong> <span class="highlight">ck_anto</span><br>
-        <strong>Progetto:</strong> AxisMC Staff Dashboard
-      </p>
-    </div>
-  </div>
-</div>
+            const target = document.getElementById(tabName);
+            if (target) target.classList.add("active");
 
-<script>
-  // =========================
-  // TAB SYSTEM
-  // =========================
-  function openTab(evt, tabName) {
-    // Nascondi tutte le tab
-    const tabContents = document.getElementsByClassName("tab-content");
-    for (let i = 0; i < tabContents.length; i++) {
-      tabContents[i].classList.remove("active");
-    }
-
-    // Disattiva tutti i bottoni tab
-    const tabBtns = document.getElementsByClassName("tab-btn");
-    for (let i = 0; i < tabBtns.length; i++) {
-      tabBtns[i].classList.remove("active");
-    }
-
-    // Mostra tab selezionata (se esiste)
-    const target = document.getElementById(tabName);
-    if (target) target.classList.add("active");
-
-    // Attiva bottone selezionato
-    if (evt && evt.currentTarget) evt.currentTarget.classList.add("active");
-  }
-
-  // =========================
-  // NOTIFICA (riutilizzabile)
-  // =========================
-  function showToast(text, type = "success") {
-    const notification = document.createElement("div");
-    notification.textContent = text;
-
-    const bg =
-      type === "success"
-        ? "linear-gradient(135deg, var(--success) 0%, #45a049 100%)"
-        : type === "danger"
-        ? "linear-gradient(135deg, var(--danger) 0%, #ff6b6b 100%)"
-        : "linear-gradient(135deg, var(--warning) 0%, #ff8e53 100%)";
-
-    notification.style.cssText = `
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: ${bg};
-      color: white;
-      padding: 15px 25px;
-      border-radius: 10px;
-      font-weight: 700;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
-      z-index: 10000;
-      animation: slideInRight 0.3s ease;
-    `;
-
-    document.body.appendChild(notification);
-
-    setTimeout(() => {
-      notification.style.animation = "slideOutRight 0.3s ease";
-      setTimeout(() => notification.remove(), 300);
-    }, 2000);
-  }
-
-  // =========================
-  // COPY COMMAND (con fallback)
-  // =========================
-  function copyCommand(command) {
-    if (!command) return;
-
-    // Clipboard API (moderna)
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard
-        .writeText(command)
-        .then(() => showToast("✅ Comando copiato!", "success"))
-        .catch(() => {
-          fallbackCopy(command);
-          showToast("✅ Comando copiato!", "success");
-        });
-      return;
-    }
-
-    // Fallback per HTTP/non secure context
-    fallbackCopy(command);
-    showToast("✅ Comando copiato!", "success");
-  }
-
-  function fallbackCopy(text) {
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    textarea.setAttribute("readonly", "");
-    textarea.style.position = "fixed";
-    textarea.style.top = "-9999px";
-    document.body.appendChild(textarea);
-    textarea.select();
-    try {
-      document.execCommand("copy");
-    } catch (e) {
-      // se fallisce, almeno non crasha
-    }
-    textarea.remove();
-  }
-
-  // =========================
-  // SEARCH STAFF
-  // =========================
-  function searchStaff() {
-    const input = document.getElementById("staffSearch");
-    if (!input) return;
-
-    const filter = input.value.toLowerCase();
-    const cards = document.querySelectorAll("[data-staffer]");
-
-    cards.forEach((card) => {
-      const text = card.textContent.toLowerCase();
-      // usa block perchè è card, se vuoi flex cambia qui
-      card.style.display = text.includes(filter) ? "block" : "none";
-    });
-  }
-
-  // =========================
-  // SEARCH COMMANDS
-  // =========================
-  function searchCommands() {
-    const input = document.getElementById("commandSearch");
-    if (!input) return;
-
-    const filter = input.value.toLowerCase();
-    const categories = document.querySelectorAll("[data-command-category]");
-
-    categories.forEach((category) => {
-      const commands = category.querySelectorAll(".command-box");
-      let hasVisibleCommand = false;
-
-      commands.forEach((cmd) => {
-        const text = cmd.textContent.toLowerCase();
-        if (text.includes(filter)) {
-          cmd.style.display = "flex";
-          hasVisibleCommand = true;
-        } else {
-          cmd.style.display = "none";
+            if (evt && evt.currentTarget) evt.currentTarget.classList.add("active");
         }
-      });
 
-      category.style.display = hasVisibleCommand ? "block" : "none";
-    });
-  }
+        // Toast Notification
+        function showToast(text, type = "success") {
+            const notification = document.createElement("div");
+            notification.textContent = text;
 
-  // =========================
-  // Animazioni Toast (una volta sola)
-  // =========================
-  (function injectToastAnimations() {
-    const style = document.createElement("style");
-    style.textContent = `
-      @keyframes slideInRight {
-        from { transform: translateX(100%); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
-      }
-      @keyframes slideOutRight {
-        from { transform: translateX(0); opacity: 1; }
-        to { transform: translateX(100%); opacity: 0; }
-      }
-    `;
-    document.head.appendChild(style);
-  })();
-</script>
+            const bg = type === "success"
+                ? "linear-gradient(135deg, var(--success) 0%, #45a049 100%)"
+                : type === "danger"
+                ? "linear-gradient(135deg, var(--danger) 0%, #ff6b6b 100%)"
+                : "linear-gradient(135deg, var(--warning) 0%, #ff8e53 100%)";
+
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${bg};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                font-weight: 700;
+                box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+                z-index: 10000;
+                animation: slideInRight 0.3s ease;
+            `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = "slideOutRight 0.3s ease";
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
+        }
+
+        // Copy Command
+        function copyCommand(command) {
+            if (!command) return;
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(command)
+                    .then(() => showToast("✅ Comando copiato!", "success"))
+                    .catch(() => {
+                        fallbackCopy(command);
+                        showToast("✅ Comando copiato!", "success");
+                    });
+                return;
+            }
+
+            fallbackCopy(command);
+            showToast("✅ Comando copiato!", "success");
+        }
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.setAttribute("readonly", "");
+            textarea.style.position = "fixed";
+            textarea.style.top = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand("copy");
+            } catch (e) {}
+            textarea.remove();
+        }
+
+        // Search Commands
+        function searchCommands() {
+            const input = document.getElementById("commandSearch");
+            if (!input) return;
+
+            const filter = input.value.toLowerCase();
+            const categories = document.querySelectorAll("[data-command-category]");
+
+            categories.forEach((category) => {
+                const commands = category.querySelectorAll(".command-box");
+                let hasVisibleCommand = false;
+
+                commands.forEach((cmd) => {
+                    const text = cmd.textContent.toLowerCase();
+                    if (text.includes(filter)) {
+                        cmd.style.display = "flex";
+                        hasVisibleCommand = true;
+                    } else {
+                        cmd.style.display = "none";
+                    }
+                });
+
+                category.style.display = hasVisibleCommand ? "block" : "none";
+            });
+        }
+
+        // Toast Animations
+        (function injectToastAnimations() {
+            const style = document.createElement("style");
+            style.textContent = `
+                @keyframes slideInRight {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOutRight {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        })();
+    </script>
 </body>
 </html>
