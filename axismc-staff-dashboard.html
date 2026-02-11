@@ -927,6 +927,104 @@
   font-weight: 600;
   padding: 10px 2px;
 }
+		.provini-top{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap:18px;
+}
+
+.provini-box{
+  background: var(--dark-lighter);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.provini-title{
+  color: var(--text);
+  font-size: 1.2em;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.provini-label{
+  display:block;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.9em;
+  margin-bottom: 6px;
+}
+
+.provini-select, .provini-input{
+  width:100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: var(--dark-card);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  outline: none;
+  transition: all .2s ease;
+}
+
+.provini-select:focus, .provini-input:focus{
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
+}
+
+.provini-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top: 12px;
+}
+
+.provini-row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.chat-wrap{
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow:hidden;
+  background: rgba(0,0,0,0.15);
+}
+
+.chat-log{
+  height: 220px;
+  overflow:auto;
+  padding: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: var(--text);
+}
+
+.chat-msg{
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 8px;
+}
+
+.chat-input-row{
+  display:flex;
+  gap:10px;
+  padding: 12px;
+  border-top: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+}
+
+.provini-note{
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  line-height: 1.7;
+}
     </style>
 </head>
 <body>
@@ -998,9 +1096,96 @@
             <button class="tab-btn" onclick="openTab(event, 'regolamento')">📜 Regolamento Server</button>
 			<button class="tab-btn" onclick="openTab(event, 'annunci')">📢 Annunci / Changelog</button>
 			<button class="tab-btn" onclick="openTab(event, 'pex')">🧩 Pex & Depex</button>
+			<button class="tab-btn" onclick="openTab(event, 'provini')">🎤 Provini</button>
 			<button class="tab-btn" onclick="openTab(event, 'staff')">👥 Staff</button>
         </div>
 
+
+		<!-- TAB PROVINI -->
+<div id="provini" class="tab-content">
+  <div class="section-card">
+    <h2 class="section-title"><span class="emoji">🎤</span> Centro Provini</h2>
+    <p style="color: var(--text-muted); margin-bottom: 25px;">
+      Seleziona il tipo di provino e avvia la sessione. Le domande “pronte” sono visibili solo ai ruoli autorizzati.
+    </p>
+
+    <div class="provini-top">
+      <div class="provini-box">
+        <h3 class="provini-title">🧩 Tipo provino</h3>
+
+        <label class="provini-label">Seleziona</label>
+        <select id="provinoType" class="provini-select" onchange="renderProvino()">
+          <option value="trial">Trial</option>
+          <option value="helper">Helper</option>
+          <option value="mod">Mod</option>
+          <option value="srmod">SrMod</option>
+          <option value="admin">Admin</option>
+        </select>
+
+        <div class="provini-actions">
+          <button class="quick-btn" onclick="startFullscreen()">🔒 Avvia modalità schermo intero</button>
+          <button class="quick-btn" onclick="createSession()">➕ Crea sessione provino</button>
+        </div>
+
+        <p class="provini-note">
+          ⚠️ Nota: lo schermo intero e il blocco tasti sono <span class="highlight">solo deterrenti</span>.
+          Non esiste un blocco totale da browser.
+        </p>
+      </div>
+
+      <div class="provini-box">
+        <h3 class="provini-title">💬 Parlare tramite sito</h3>
+
+        <div class="provini-row">
+          <input id="sessionId" class="provini-input" placeholder="ID Sessione (es. AX-1234)" />
+          <button class="quick-btn" onclick="joinSession()">Entra</button>
+        </div>
+
+        <div class="chat-wrap">
+          <div class="chat-log" id="chatLog"></div>
+
+          <div class="chat-input-row">
+            <input id="chatMsg" class="provini-input" placeholder="Scrivi un messaggio..." onkeydown="if(event.key==='Enter'){sendChat();}" />
+            <button class="quick-btn" onclick="sendChat()">Invia</button>
+          </div>
+        </div>
+
+        <p class="provini-note">
+          Per renderla “vera” serve un backend (WebSocket / database). Qui è UI demo.
+        </p>
+      </div>
+    </div>
+
+    <!-- DOMANDE (solo staff autorizzato) -->
+    <div class="section-card" style="background: var(--dark-lighter); margin-top: 20px;">
+      <h3 class="section-title"><span class="emoji">📋</span> Domande pronte (Staff)</h3>
+
+      <div id="staffQuestionsLock" class="warning-box" style="display:none;">
+        Accesso negato: questa sezione è riservata ad Admin/Owner.
+      </div>
+
+      <div id="staffQuestions" style="display:none;">
+        <p style="color: var(--text-muted); margin-bottom: 15px;">
+          Scegli il provino: le domande cambiano automaticamente.
+        </p>
+
+        <div class="ticket-category">
+          <div class="category-header">
+            🧠 Script domande — <span id="qTitle" class="highlight">—</span>
+          </div>
+
+          <ol id="qList" style="color: var(--text-muted); line-height: 2; padding-left: 20px;"></ol>
+
+          <div class="command-box" onclick="copyCommand(document.getElementById('qList').innerText)">
+            <span class="command-text">📌 Copia tutte le domande</span>
+            <button class="copy-btn">Copia</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
     <!-- TAB PEX & DEPEX -->
         <div id="pex" class="tab-content">
            <div class="section-card">
@@ -2162,7 +2347,146 @@
                 category.style.display = hasVisibleCommand ? 'block' : 'none';
             });
         }
+        // === RUOLO STAFF CORRENTE (DEMO) ===
+// Metti qui: "owner" / "admin" / "helper" / "trial" ecc.
+// Poi collegalo al tuo login reale.
+const CURRENT_ROLE = "admin"; // <-- cambia quando integri backend
 
+const QUESTION_BANK = {
+  trial: [
+    "Presentati (età, esperienza server, disponibilità).",
+    "Perché vuoi entrare nello staff?",
+    "Come gestisci un utente tossico in ticket?",
+    "Cosa fai se non sai la risposta a un problema?",
+    "Esempio: segnalazione senza prove — come rispondi?"
+  ],
+  helper: [
+    "Come gestisci un ticket bug senza promettere rimborsi?",
+    "Priorità ticket: store vs segnalazione — cosa fai per primo e perché?",
+    "Come comunichi in modo professionale anche se l’utente provoca?",
+    "Cosa fai se un player chiede HeadStaff?",
+    "Regola fondamentale sui transcript/log: spiegala."
+  ],
+  mod: [
+    "Quali prove servono per sanzionare? (screenshot/video/log).",
+    "Differenza tra warn / mute / tempban (quando usare cosa).",
+    "Esempio: cheat sospetto — descrivi procedura corretta.",
+    "Limiti del tuo rank: come li rispetti?",
+    "Cosa fai se un altro staff abusa dei comandi?"
+  ],
+  srmod: [
+    "Gestione appello ban: come valuti e cosa controlli?",
+    "Come gestisci un caso ‘dubbio’ con prove parziali?",
+    "Procedure anti-abuse: come garantisci trasparenza?",
+    "Quando escalare a Admin/Owner e perché?",
+    "Esempio: multi-account/dupeip — come procedi?"
+  ],
+  admin: [
+    "Come definisci linee guida staff e fai rispettare procedure?",
+    "Decisioni in casi critici: come documenti e comunichi?",
+    "Gestione reclami gravi: flusso e priorità.",
+    "Politica rimborsi: chi decide e come si applica?",
+    "Come gestire conflitti interni allo staff?"
+  ]
+};
+
+function renderProvino() {
+  const type = document.getElementById("provinoType").value;
+
+  // Sezione domande: solo admin/owner (personalizza come vuoi)
+  const canSeeQuestions = (CURRENT_ROLE === "admin" || CURRENT_ROLE === "owner");
+
+  const lock = document.getElementById("staffQuestionsLock");
+  const box = document.getElementById("staffQuestions");
+
+  if (!canSeeQuestions) {
+    lock.style.display = "block";
+    box.style.display = "none";
+    return;
+  }
+
+  lock.style.display = "none";
+  box.style.display = "block";
+
+  document.getElementById("qTitle").textContent = type.toUpperCase();
+  const qList = document.getElementById("qList");
+  qList.innerHTML = "";
+
+  (QUESTION_BANK[type] || []).forEach(q => {
+    const li = document.createElement("li");
+    li.textContent = q;
+    qList.appendChild(li);
+  });
+}
+
+// chiamala una volta al load
+renderProvino();
+
+// === CHAT DEMO (senza backend) ===
+let currentSession = "";
+
+function createSession() {
+  // genera un ID semplice demo
+  currentSession = "AX-" + Math.floor(1000 + Math.random() * 9000);
+  document.getElementById("sessionId").value = currentSession;
+  logChat("SYSTEM", `Sessione creata: ${currentSession}`);
+}
+
+function joinSession() {
+  const id = document.getElementById("sessionId").value.trim();
+  if (!id) return;
+  currentSession = id;
+  logChat("SYSTEM", `Sei entrato nella sessione: ${currentSession}`);
+}
+
+function sendChat() {
+  const input = document.getElementById("chatMsg");
+  const msg = input.value.trim();
+  if (!msg) return;
+  if (!currentSession) {
+    logChat("SYSTEM", "Prima crea o entra in una sessione.");
+    return;
+  }
+  logChat("ME", msg);
+  input.value = "";
+}
+
+function logChat(who, text) {
+  const log = document.getElementById("chatLog");
+  const div = document.createElement("div");
+  div.className = "chat-msg";
+  div.textContent = `[${who}] ${text}`;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
+
+// === FULLSCREEN (deterrente) ===
+function startFullscreen() {
+  const el = document.documentElement;
+  if (el.requestFullscreen) el.requestFullscreen();
+  logChat("SYSTEM", "Modalità schermo intero richiesta.");
+}
+
+// === DETERRENTI DEVTOOLS (NON SICURI, SOLO SCORAGGIO) ===
+// Blocca alcune combinazioni comuni (bypassabile)
+document.addEventListener("keydown", (e) => {
+  // F12
+  if (e.key === "F12") e.preventDefault();
+
+  // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+U
+  if (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key.toUpperCase())) e.preventDefault();
+  if (e.ctrlKey && e.key.toUpperCase() === "U") e.preventDefault();
+
+  // F11 (fullscreen toggle) -> NON puoi impedirlo sempre, ma puoi provare
+  if (e.key === "F11") e.preventDefault();
+});
+
+// se esci dal fullscreen, avvisa
+document.addEventListener("fullscreenchange", () => {
+  if (!document.fullscreenElement) {
+    logChat("SYSTEM", "Sei uscito dallo schermo intero.");
+  }
+});
         // Aggiungi stili per le animazioni
         const style = document.createElement('style');
         style.textContent = `
